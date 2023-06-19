@@ -9,6 +9,8 @@ Kick           |  Twitch
 **Table of Contents**
 - [Requirements](#requirements)
 - [Guide WIP](#guide)
+  - [Intercepting](#intercepting)
+  - [Bypassing Walls](#bypassing-walls)
 - [TODO](#TODO)
 
 **Disclaimer**
@@ -123,8 +125,35 @@ The bigger caveat is, there is a check in place, that prevents Twitch from loadi
 So we just simply, wait for it to complete, [then we Swizzle](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.Coordinator.swift#L157-L162), and then unregister the overrides after we fetch the HLS url.
 
 
-### Bypassing Walls (May be used in the future, but implementation is in place)
+### Bypassing Walls
 
+> May be used in the future, but implementation is in place
+
+Sometimes there are dialog boxes or overlays that could block a stream from loading. 
+
+Systems have been put in place to setup a basic automation routing to click through these until a stream can be found.
+
+```swift
+Button {
+    action = .automateClick("Start watching") { result in
+        
+    }
+} label : {
+    Text("Automate Click")
+}
+```
+
+Set the client into [debug mode](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Home%2BCenter.swift#L32-L36) here and turn `isHeadless` off.
+
+```swift
+var webViewConfig: WebViewConfig {
+    .init(.stream(state.streamKind),
+          isHeadless: true,// -> false
+          isDebug: false)// -> true
+}
+```
+
+Then, you can play around/experiment with automation. Editing the button actions [here](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/GraniteWebView.swift#L41-L91).
 
 ***WIP***
 
