@@ -41,6 +41,7 @@ Kick           |  Twitch
 
 On the Swift side, we should tell `WKWebView` to [listen to a custom handler](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.swift#L27-L33) we call `callbackHandler`.
 
+This adds a content controller to the WKWebView, giving it an id to listen to from the JS being evaluated.
 ```swift
 fileprivate func createHandler(_ handler: WKScriptMessageHandlerWithReply) -> WKUserContentController {
     let contentController = WKUserContentController()
@@ -123,7 +124,7 @@ extension URLProtocol {
 
 The bigger caveat is, there is a check in place, that prevents Twitch from loading the stream at all. And my theory is around a blocked `POST` response. Which is more on Apple's side, I believe, rather than Twitch's. As a security feature to prevent unwarranted custom URL Protocols intercepting `http/https urlschemes`.
 
-So we just simply, wait for it to complete, [then we Swizzle](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.Coordinator.swift#L157-L162), and then unregister the overrides after we fetch the HLS url.
+So we just simply, wait for it to complete, [then we Swizzle](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L164-L169), and then unregister the overrides after we fetch the HLS url.
 
 
 ### Bypassing Walls
@@ -132,19 +133,39 @@ So we just simply, wait for it to complete, [then we Swizzle](https://github.com
 
 Sometimes there are dialog boxes or overlays that could block a stream from loading. 
 
-Systems have been put in place to setup a basic automation routing to click through these until a stream can be found.
+Systems have been put in place to setup a [basic automation routine](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L87-L93) to click through these until a stream can be found.
+
+> Warning: Potential infinite loop case. If a wall is detected, but automation fails.
 
 ```swift
-Button {
-    action = .automateClick("Start watching") { result in
-        
+webView.action = .evaluateJS("document.documentElement.outerHTML.toString()") { [weak self] result in
+    switch result {
+    case .success(let any):
+        if let htmlString = any as? String {
+            self?.bypasser?.updateHTML(htmlString)
+            
+            if self?.webView.config.isDebug == true || self?.bypasser?.isComplete == true ||
+                self?.webView.config.disableContentBypass == true {
+                self?.bypasser?.isByPassing = false
+                self?.updateContentURL()
+            } else if let step = self?.bypasser?.nextStep {
+                self?.webView.action = step.trigger { result in
+                    self?.bypasser?.update(step, state: result)
+                    
+                    guard result else { return }
+                    
+                    self?.webView.action = .reload//<--- will refresh the page and this function will invoke again if a new wall is detected. 
+                }
+            }
+        }
+    default:
+        self?.bypasser?.isByPassing = false
+        print("[WebView.Coordinator.Helpers] Failed to retrieve DOM.")
     }
-} label : {
-    Text("Automate Click")
 }
 ```
 
-Set the client into debug mode [here](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Home%2BCenter.swift#L32-L36) and turn `isHeadless` off.
+Set the client into debug mode [here](https://github.com/pexavc/Bitsy/blob/main/Shared/Components/Stream/Stream%2BCenter.swift#L12-L16) and turn `isHeadless` off.
 
 ```swift
 var webViewConfig: WebViewConfig {
@@ -160,9 +181,9 @@ Then, you can play around/experiment with automation. Editing the button actions
 
 1. [Add a new `StreamKind`](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
 
-2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Reducers/Home.Stream.swift#L44-L49)
+2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/blob/main/Shared/Components/Menu/Reducers/Menu.Stream.swift#L40-L45)
 
-3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.Coordinator.swift#L130-L167) most likely.
+3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L139-L170) most likely.
 
 ## TODO
 - [x] Complete macOS implementation

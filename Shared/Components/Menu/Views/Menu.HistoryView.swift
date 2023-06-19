@@ -30,6 +30,7 @@ extension Menu {
                     
                 }.buttonStyle(PlainButtonStyle())
             }
+            
             ScrollView([.horizontal]) {
                 HStack {
                     ForEach(service.center.$state.binding.history, id: \.self) { item in

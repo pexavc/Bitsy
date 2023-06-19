@@ -85,13 +85,10 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                 
                 //TODO: Kick might need a delayed wall check.
                 if self.bypasser?.detectedWall == true {
-//                    if webView.config.disableContentBypass == false {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-//                            self?.bypassSteps()
-//                        }
-//                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                        self?.bypassSteps()
+                    if self.webView.config.disableContentBypass == false {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                            self?.bypassSteps()
+                        }
                     }
                 }
             }
