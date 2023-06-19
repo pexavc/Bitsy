@@ -11,6 +11,7 @@ Kick           |  Twitch
 - [Guide WIP](#guide)
   - [Intercepting](#intercepting)
   - [Bypassing Walls](#bypassing-walls)
+  - [Adding a new site](#adding-a-new-site)
 - [TODO](#TODO)
 
 **Disclaimer**
@@ -143,7 +144,7 @@ Button {
 }
 ```
 
-Set the client into [debug mode](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Home%2BCenter.swift#L32-L36) here and turn `isHeadless` off.
+Set the client into debug mode [here](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Home%2BCenter.swift#L32-L36) and turn `isHeadless` off.
 
 ```swift
 var webViewConfig: WebViewConfig {
@@ -154,6 +155,14 @@ var webViewConfig: WebViewConfig {
 ```
 
 Then, you can play around/experiment with automation. Editing the button actions [here](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/GraniteWebView.swift#L41-L91).
+
+### Adding a new site
+
+1. [Add a new `StreamKind`](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
+
+2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
+
+3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34) most likely.
 
 ***WIP***
 
