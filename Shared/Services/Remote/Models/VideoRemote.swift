@@ -1,6 +1,6 @@
 //
 //  VideoRemote.swift
-//  KickIt
+//  Bitsy
 //
 //  ViewModel classfor VideoConfig
 //

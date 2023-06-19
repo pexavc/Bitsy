@@ -1,6 +1,6 @@
 //
 //  WebView.swift
-//  KickIt
+//  Bitsy
 //
 //  Created by PEXAVC on 6/17/23.
 //
