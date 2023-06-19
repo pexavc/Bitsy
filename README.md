@@ -160,11 +160,9 @@ Then, you can play around/experiment with automation. Editing the button actions
 
 1. [Add a new `StreamKind`](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
 
-2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
+2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/tree/main/Shared/Components/Home/Reducers/Home.Stream.swift#L44-L49)
 
-3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34) most likely.
-
-***WIP***
+3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.Coordinator.swift#L130-L167) most likely.
 
 ## TODO
 - [x] Bypass walls properly (Age rating/Cookies dialog) (Seems to only affect macOS build)
