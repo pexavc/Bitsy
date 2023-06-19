@@ -16,8 +16,9 @@ extension WebViewCoordinator {
             case .success(let any):
                 if let htmlString = any as? String {
                     self?.bypasser?.updateHTML(htmlString)
+                    guard self?.bypasser?.detectedWall == true else { return }
                     
-                    if self?.webView.config.isDebug == true || self?.bypasser?.isComplete == true ||
+                    if self?.bypasser?.isComplete == true ||
                         self?.webView.config.disableContentBypass == true {
                         self?.bypasser?.isByPassing = false
                         self?.updateContentURL()

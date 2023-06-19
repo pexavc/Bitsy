@@ -58,6 +58,9 @@ extension StreamKind {
             return [
                 .init(targetInnerText: "Start Watching",
                       detectionText: "The broadcaster has indicated that this channel is intended for mature audiences.",
+                      kind: .button),
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "The broadcaster indicated that this channel is intended for mature audiences.",
                       kind: .button)
             ]
         }

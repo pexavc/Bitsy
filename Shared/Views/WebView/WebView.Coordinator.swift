@@ -82,15 +82,6 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                 }
                 
                 self.bypasser?.updateHTML(html)
-                
-                //TODO: Kick might need a delayed wall check.
-                if self.bypasser?.detectedWall == true {
-                    if self.webView.config.disableContentBypass == false {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                            self?.bypassSteps()
-                        }
-                    }
-                }
             }
         }
     }
@@ -163,6 +154,13 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                         URLProtocol.registerClass(SwizzleURLProtocol.self)
                         URLProtocol.wk_register(scheme: "https")
                         URLProtocol.wk_register(scheme: "http")
+                    }
+                } else if messageString == "Loaded" {
+                    print("[WebViewCoordinator] DOM fully loaded.")
+                    if self.webView.config.disableContentBypass == false {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                            self?.bypassSteps()
+                        }
                     }
                 }
             }

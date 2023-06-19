@@ -32,6 +32,15 @@ fileprivate func createHandler(_ handler: WKScriptMessageHandlerWithReply) -> WK
     return contentController
 }
 
+fileprivate func loadedJSCallback(_ controller: WKUserContentController) {
+    if let jsSource = Bundle.main.url(forResource: "LoadState", withExtension: "js"),
+        let jsSourceString = try? String(contentsOf: jsSource) {
+        let userScript = WKUserScript(source: jsSourceString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+
+        controller.addUserScript(userScript)
+    }
+}
+
 fileprivate func videoEventJSCallback(_ controller: WKUserContentController) {
     if let jsSource = Bundle.main.url(forResource: "VideoPlayerEvent", withExtension: "js"),
         let jsSourceString = try? String(contentsOf: jsSource) {
@@ -86,6 +95,7 @@ public struct WebView: UIViewRepresentable {
         configuration.mediaTypesRequiringUserActionForPlayback = config.mediaTypesRequiringUserActionForPlayback
         configuration.preferences = preferences
         configuration.userContentController = createHandler(context.coordinator)
+        loadedJSCallback(configuration.userContentController)
         videoEventJSCallback(configuration.userContentController)
         xhrEventJSCallback(configuration.userContentController)
         
@@ -151,6 +161,7 @@ public struct WebView: NSViewRepresentable {
         let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
         configuration.userContentController = createHandler(context.coordinator)
+        loadedJSCallback(configuration.userContentController)
         videoEventJSCallback(configuration.userContentController)
         xhrEventJSCallback(configuration.userContentController)
         

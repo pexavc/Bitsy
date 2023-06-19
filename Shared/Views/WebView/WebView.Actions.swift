@@ -164,7 +164,14 @@ extension WebView {
             return ""
         }
         
-        let command: String = "document.querySelectorAll(\"button.\(buttonClass)\").forEach(button=>button.click())"
+        //let command_old: String = "document.querySelectorAll(\"button.\(buttonClass)\").forEach(button=>button.click())"
+        let command: String = """
+        [...document.querySelectorAll("button.\(buttonClass)")]
+        .filter(e => {
+        return e.innerHTML.includes('Start Watching')
+
+        }).forEach(button => button.click());
+        """
         
         print("[WebView.Helpers] Invoking: \(command)")
         
