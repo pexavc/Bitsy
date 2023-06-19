@@ -168,8 +168,7 @@ extension WebView {
         let command: String = """
         [...document.querySelectorAll("button.\(buttonClass)")]
         .filter(e => {
-        return e.innerHTML.includes('Start Watching')
-
+            return e.innerHTML.includes('\(innerText)')
         }).forEach(button => button.click());
         """
         
