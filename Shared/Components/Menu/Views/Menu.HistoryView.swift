@@ -51,8 +51,8 @@ extension Menu {
                         .frame(minWidth: 90)
                         .frame(height: 60)
                         .onTapGesture {
-                            service.center.$state.binding.username.wrappedValue = item.name.wrappedValue
-                            center.setStream.send(SetStream.Meta(kind: item.kind.wrappedValue))
+                            center.setStream.send(SetStream.Meta(username: item.name.wrappedValue,
+                                                                 kind: item.kind.wrappedValue))
                         }
                     }
                 }

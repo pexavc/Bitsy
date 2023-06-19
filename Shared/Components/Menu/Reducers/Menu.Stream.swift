@@ -14,6 +14,7 @@ extension Menu {
         typealias Center = Menu.Center
         
         struct Meta: GranitePayload {
+            var username: String
             var kind: StreamKind
         }
         
@@ -25,7 +26,7 @@ extension Menu {
             
             service.preload()
             
-            let sanitized = state.username.trimmingCharacters(in: .whitespacesAndNewlines)
+            let sanitized = (meta?.username ?? state.username).trimmingCharacters(in: .whitespacesAndNewlines)
             
             guard sanitized.isEmpty == false else {
                 state.errorMessage = "Please enter a valid username"

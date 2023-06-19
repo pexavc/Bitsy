@@ -82,6 +82,18 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                 }
                 
                 self.bypasser?.updateHTML(html)
+                
+                //TODO: Kick might need a delayed wall check.
+                if self.bypasser?.detectedWall == true {
+//                    if webView.config.disableContentBypass == false {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+//                            self?.bypassSteps()
+//                        }
+//                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                        self?.bypassSteps()
+                    }
+                }
             }
         }
     }
@@ -149,17 +161,11 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                     
                     guard webView.state.contentURL == nil else { return }
                     
-                    if webView.config.disableContentBypass == false {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                            self?.bypassSteps()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            //After the stream loads on Twitch we will swizzle requests to get the .m3u8 stream file
-                            URLProtocol.registerClass(SwizzleURLProtocol.self)
-                            URLProtocol.wk_register(scheme: "https")
-                            URLProtocol.wk_register(scheme: "http")
-                        }
+                    DispatchQueue.main.async {
+                        //After the stream loads on Twitch we will swizzle requests to get the .m3u8 stream file
+                        URLProtocol.registerClass(SwizzleURLProtocol.self)
+                        URLProtocol.wk_register(scheme: "https")
+                        URLProtocol.wk_register(scheme: "http")
                     }
                 }
             }

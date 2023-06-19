@@ -10,6 +10,7 @@ import Fuzi
 
 extension WebViewCoordinator {
     func bypassSteps() {
+        self.bypasser?.isByPassing = true
         webView.action = .evaluateJS("document.documentElement.outerHTML.toString()") { [weak self] result in
             switch result {
             case .success(let any):
@@ -18,6 +19,7 @@ extension WebViewCoordinator {
                     
                     if self?.webView.config.isDebug == true || self?.bypasser?.isComplete == true ||
                         self?.webView.config.disableContentBypass == true {
+                        self?.bypasser?.isByPassing = false
                         self?.updateContentURL()
                     } else if let step = self?.bypasser?.nextStep {
                         self?.webView.action = step.trigger { result in
@@ -30,6 +32,7 @@ extension WebViewCoordinator {
                     }
                 }
             default:
+                self?.bypasser?.isByPassing = false
                 print("[WebView.Coordinator.Helpers] Failed to retrieve DOM.")
             }
         }

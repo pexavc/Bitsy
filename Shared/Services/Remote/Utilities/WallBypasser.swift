@@ -12,13 +12,18 @@ class WallBypasser: NSObject {
     let kind: StreamKind
     var steps: [WallBypasser.Step]
     
+    var detectedWall: Bool {
+        steps.isEmpty == false
+    }
+    
+    var isByPassing: Bool = false
+    
     var htmlString: String? = nil
     var htmlDocument: HTMLDocument? = nil
-    var detectedWall: Bool = false
     
     init(_ kind: StreamKind) {
         self.kind = kind
-        self.steps = kind.bypassSteps
+        self.steps = []
         super.init()
     }
     
@@ -26,13 +31,16 @@ class WallBypasser: NSObject {
         self.htmlString = htmlString
         self.htmlDocument = htmlString.htmlDocument
         
-        let detectionTexts: [String] = steps.map { $0.detectionText }
-        detectionTexts.forEach { text in
-            detectedWall = htmlString.contains(text)
+        steps.removeAll()
+        
+        kind.bypassSteps.forEach { step in
+            if htmlString.contains(step.detectionText) {
+                steps.append(step)
+            }
         }
         
         if detectedWall {
-            print("[WallBypasser] Wall detected")
+            print("[WallBypasser] Wall detected for: \(kind)")
         }
     }
 }

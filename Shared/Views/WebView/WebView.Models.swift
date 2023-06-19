@@ -117,7 +117,7 @@ public struct WebViewConfig {
                 isScrollEnabled: Bool = true,
                 isOpaque: Bool = true,
                 backgroundColor: Color = .clear,
-                disableContentBypass: Bool = true,
+                disableContentBypass: Bool = false,
                 isHeadless: Bool = false,
                 isDebug: Bool = false) {
         self.contentKind = contentKind
