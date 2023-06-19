@@ -1,6 +1,6 @@
 # Bitsy (iOS/iPadOS & macOS)
 
-100% SwiftUI lightweight stream viewer for Kick and Twitch. Support for other platforms coming soon!.
+100% SwiftUI lightweight stream viewer for Kick and Twitch. Support for other platforms coming soon!
 
 Kick           |  Twitch
 :-------------------------:|:-------------------------:
@@ -79,7 +79,7 @@ if messageString.contains("StreamURL") {
 
 [**Swizzling in Swift (Twitch Solution)**](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Swizzle.swift)
 
-Twitch is a little complicated. They are actually updating their API, I believe, to prevent easy stream link fetching which is why I feel there's a lote more measures in place here. Not only that, since iOS14, NSURLProtocol class registration has lots of checks in place, in which some requests aren't available out of the box in the usual methods of interception.
+Twitch is a little complicated. They are actually updating their API, I believe, to prevent easy stream link fetching which is why I feel there's a lot more measures in place here. Not only that, since iOS14, NSURLProtocol class registration has lots of checks in place, in which some requests aren't available out of the box in the usual methods of interception.
 
 Based on the [Obj-C implementation](https://github.com/wilddylan/WKWebViewWithURLProtocol/blob/master/WKWebViewWithURLProtocol/NSURLProtocol%2BWKWebViewSupport.m) by [@wilddylan](https://github.com/wilddylan) this Swift implementation, edits a key-value property of WKBrowsing. [Here's the exact header file of the private Apple package I am talking about.](https://github.com/MP0w/iOS-Headers/blob/master/iOS8.1/PrivateFrameworks/WebKit/WKBrowsingContextController.h)
 
