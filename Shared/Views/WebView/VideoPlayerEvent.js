@@ -29,7 +29,7 @@ function setupVideoPlayingListener() {
         return
     }
 
-    setTimeout(setupVidePlayingListener, 100);
+    setTimeout(setupVideoPlayingListener, 100);
 }
 
 setupVideoPlayingListener();
