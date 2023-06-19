@@ -8,6 +8,22 @@
 import Foundation
 import WebKit
 
+/*
+ 
+ Twitch is a little more complicated. A pure Swizzle approach won't work as both
+ internal APIs in WKWebView and on Twitch's end when applying an "integrity check"
+ make it difficult to get the HLS payload.
+ 
+ Since POST requests are blocked, at least up to my knowledge for now. We can't
+ entirely replace the traffic monitor with a URLProtocol. "In the past NSURLProtocol and UIWebView
+ seemed to handle these cases fairly well". But, ideally a pure Swift and macOS compatible approach
+ is ideal.
+ 
+ We Swizzle after the video is loaded. When the stream starts the HLS parts will come, since
+ a link and handshake is completed. See WebView.Coordinatore.swift.
+ 
+ */
+
 extension Notification.Name {
     static let didReceiveURLResponse = Notification.Name("didReceiveURLResponse")
 }
@@ -183,6 +199,15 @@ extension SwizzleURLProtocol: URLSessionDataDelegate {
 }
 
 //MARK: NSURLSelectors
+
+/*
+ 
+ WARNING:
+ 
+ This most likely will not pass AppReview. If you are thinking about implementing such logics
+ in a production app. This is considered editing Private APIs.
+ 
+ */
 
 extension URLProtocol {
     

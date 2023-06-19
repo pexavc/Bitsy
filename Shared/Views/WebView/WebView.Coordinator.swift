@@ -181,6 +181,7 @@ extension WebViewCoordinator: WKNavigationDelegate, WKScriptMessageHandlerWithRe
                     self?.updateContentURL(url)
                     
                     DispatchQueue.main.async {
+                        //Remove registry.
                         URLProtocol.unregisterClass(SwizzleURLProtocol.self)
                         URLProtocol.wk_unregister(scheme: "https")
                         URLProtocol.wk_unregister(scheme: "http")

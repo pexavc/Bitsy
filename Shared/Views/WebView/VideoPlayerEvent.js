@@ -1,3 +1,11 @@
+/*
+ 
+ Helps us detect when a video html element "starts playing"
+ Allowing to faithfully pull correct URLs and or swizzle at
+ the right time.
+ 
+ */
+
 function videoTags() {
     return document.getElementsByTagName("video");
 }
@@ -15,7 +23,7 @@ function setupVideoPlayingHandler() {
     }
 }
 
-function setupVidePlayingListener() {
+function setupVideoPlayingListener() {
     if (videoTags().length > 0) {
         setupVideoPlayingHandler();
         return
@@ -24,4 +32,4 @@ function setupVidePlayingListener() {
     setTimeout(setupVidePlayingListener, 100);
 }
 
-setupVidePlayingListener();
+setupVideoPlayingListener();
