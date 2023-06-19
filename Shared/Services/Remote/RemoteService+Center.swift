@@ -23,10 +23,4 @@ extension RemoteService {
                autoSave: true,
                preload: true) public var state: State
     }
-    
-    var webViewConfig: WebViewConfig {
-        .init(.stream(state.streamKind),
-              isHeadless: true,
-              isDebug: false)
-    }
 }

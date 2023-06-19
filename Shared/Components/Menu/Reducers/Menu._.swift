@@ -16,6 +16,7 @@ extension Menu {
         @Relay var service: RemoteService
         
         func reduce(state: inout Center.State) {
+            state.username = ""
             state.errorMessage = nil
             state.showUsernameEntry = true
             service.center.reset.send()

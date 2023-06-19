@@ -13,6 +13,9 @@ import Combine
 extension Menu {
     struct Center: GraniteCenter {
         struct State: GraniteState {
+            var username: String = ""
+            var streamKind: StreamKind = .kick
+            
             var showUsernameEntry: Bool = true
             var errorMessage: String? = nil
         }

@@ -95,8 +95,8 @@ extension Menu {
                 .font(.title.bold())
             
             TextField(
-                "\(service.state.streamKind.rawValue.capitalized) username",
-                text: service.center.$state.binding.username
+                "\(state.streamKind.rawValue.capitalized) username",
+                text: center.$state.binding.username
             )
             .autocorrectionDisabled()
             .textFieldStyle(PlainTextFieldStyle())
@@ -110,7 +110,7 @@ extension Menu {
             
             HStack {
                 #if os(iOS)
-                Picker(selection: service.center.$state.binding.streamKind,
+                Picker(selection: center.$state.binding.streamKind,
                        label: Text("Site:")) {
                     ForEach(StreamKind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized)
@@ -124,7 +124,7 @@ extension Menu {
                        .foregroundColor(Color.white.opacity(0.15))
                )
                 #elseif os(macOS)
-                Picker(selection: service.center.$state.binding.streamKind,
+                Picker(selection: center.$state.binding.streamKind,
                        label: Text("Site:")) {
                     ForEach(StreamKind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized).tag(kind)

@@ -25,20 +25,14 @@ extension Menu {
             
             service.preload()
             
-            let sanitized = service.state.username.trimmingCharacters(in: .whitespacesAndNewlines)
+            let sanitized = state.username.trimmingCharacters(in: .whitespacesAndNewlines)
             
             guard sanitized.isEmpty == false else {
                 state.errorMessage = "Please enter a valid username"
                 return
             }
             
-            let streamKind: StreamKind
-            if let kind = meta?.kind {
-                service.center.$state.binding.streamKind.wrappedValue = kind
-                streamKind = kind
-            } else {
-                streamKind = service.state.streamKind
-            }
+            let streamKind: StreamKind = meta?.kind ?? state.streamKind
             
             var baseURLString: String = "https://"
             

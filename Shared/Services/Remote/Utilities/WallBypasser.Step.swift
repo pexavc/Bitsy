@@ -15,6 +15,7 @@ extension WallBypasser {
         }
         
         let targetInnerText: String
+        let detectionText: String
         var kind: ElementKind
         var success: Bool = false
         
@@ -46,11 +47,19 @@ extension StreamKind {
         switch self {
         case .kick:
             return [
-                .init(targetInnerText: "Start watching", kind: .button),
-                .init(targetInnerText: "Accept", kind: .button)
+                .init(targetInnerText: "Start watching",
+                      detectionText: "",
+                      kind: .button),
+                .init(targetInnerText: "Accept",
+                      detectionText: "",
+                      kind: .button)
             ]
         case .twitch:
-            return []
+            return [
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "The broadcaster has indicated that this channel is intended for mature audiences.",
+                      kind: .button)
+            ]
         }
     }
 }

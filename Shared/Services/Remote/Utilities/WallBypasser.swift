@@ -14,6 +14,7 @@ class WallBypasser: NSObject {
     
     var htmlString: String? = nil
     var htmlDocument: HTMLDocument? = nil
+    var detectedWall: Bool = false
     
     init(_ kind: StreamKind) {
         self.kind = kind
@@ -24,6 +25,15 @@ class WallBypasser: NSObject {
     func updateHTML(_ htmlString: String) {
         self.htmlString = htmlString
         self.htmlDocument = htmlString.htmlDocument
+        
+        let detectionTexts: [String] = steps.map { $0.detectionText }
+        detectionTexts.forEach { text in
+            detectedWall = htmlString.contains(text)
+        }
+        
+        if detectedWall {
+            print("[WallBypasser] Wall detected")
+        }
     }
 }
 
