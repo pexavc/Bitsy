@@ -165,8 +165,8 @@ Then, you can play around/experiment with automation. Editing the button actions
 3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/WebView.Coordinator.swift#L130-L167) most likely.
 
 ## TODO
-- [x] Bypass walls properly (Age rating/Cookies dialog) (Seems to only affect macOS build)
 - [x] Complete macOS implementation
+- [ ] Bypass walls properly (Age rating/Cookies dialog)
 - [ ] Design polish
 - [ ] UX polish (username entry in-app)
 - [ ] Chat viewer

@@ -9,7 +9,7 @@ import Foundation
 import Granite
 import SwiftUI
 
-extension Home {
+extension Menu {
     var inputView: some View {
         VStack(spacing: 0) {
             if state.showUsernameEntry {
@@ -70,7 +70,7 @@ extension Home {
             if (state.showUsernameEntry &&
                 service.state.config != nil) ||
                 (state.showUsernameEntry &&
-                 state.isLoadingStream) {
+                 service.state.isLoadingStream) {
                 
                 Button {
                     center.toggleEditStream.send()
@@ -95,8 +95,8 @@ extension Home {
                 .font(.title.bold())
             
             TextField(
-                "\(state.streamKind.rawValue.capitalized) username",
-                text: center.$state.binding.username
+                "\(service.state.streamKind.rawValue.capitalized) username",
+                text: service.center.$state.binding.username
             )
             .autocorrectionDisabled()
             .textFieldStyle(PlainTextFieldStyle())
@@ -110,7 +110,7 @@ extension Home {
             
             HStack {
                 #if os(iOS)
-                Picker(selection: center.$state.binding.streamKind,
+                Picker(selection: service.center.$state.binding.streamKind,
                        label: Text("Site:")) {
                     ForEach(StreamKind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized)
@@ -124,7 +124,7 @@ extension Home {
                        .foregroundColor(Color.white.opacity(0.15))
                )
                 #elseif os(macOS)
-                Picker(selection: center.$state.binding.streamKind,
+                Picker(selection: service.center.$state.binding.streamKind,
                        label: Text("Site:")) {
                     ForEach(StreamKind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized).tag(kind)

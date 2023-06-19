@@ -9,9 +9,9 @@ import Foundation
 import Granite
 import SwiftUI
 
-extension Home {
+extension Menu {
     struct SetStream: GraniteReducer {
-        typealias Center = Home.Center
+        typealias Center = Menu.Center
         
         struct Meta: GranitePayload {
             var kind: StreamKind
@@ -21,27 +21,28 @@ extension Home {
         @Payload var meta: Meta?
         
         func reduce(state: inout Center.State) {
-            if let kind = meta?.kind {
-                state.streamKind = kind
-            }
-            
             state.errorMessage = nil
-            state.streamURLString = nil
             
-            let sanitized = state.username.trimmingCharacters(in: .whitespacesAndNewlines)
+            service.preload()
+            
+            let sanitized = service.state.username.trimmingCharacters(in: .whitespacesAndNewlines)
             
             guard sanitized.isEmpty == false else {
                 state.errorMessage = "Please enter a valid username"
                 return
             }
             
-            service.preload()
-            
-            service.center.reset.send()
+            let streamKind: StreamKind
+            if let kind = meta?.kind {
+                service.center.$state.binding.streamKind.wrappedValue = kind
+                streamKind = kind
+            } else {
+                streamKind = service.state.streamKind
+            }
             
             var baseURLString: String = "https://"
             
-            switch state.streamKind {
+            switch streamKind {
             case .kick:
                 baseURLString += "kick.com/"
             case .twitch:
@@ -52,15 +53,19 @@ extension Home {
             
             print("[Home.Stream.SetStream] Setting StreamURL: \(baseURLString)")
             
-            state.streamURLString = baseURLString
+            service
+                .center
+                .setStream
+                .send(RemoteService.SetStream.Meta(username: sanitized,
+                                                   kind: streamKind,
+                                                   urlString: baseURLString))
             
             state.showUsernameEntry = false
-            state.isLoadingStream = true
         }
     }
     
     struct ToggleEditStream: GraniteReducer {
-        typealias Center = Home.Center
+        typealias Center = Menu.Center
         
         func reduce(state: inout Center.State) {
             state.showUsernameEntry.toggle()
@@ -68,11 +73,10 @@ extension Home {
     }
     
     struct RenderStream: GraniteReducer {
-        typealias Center = Home.Center
+        typealias Center = Menu.Center
         
         func reduce(state: inout Center.State) {
             state.showUsernameEntry = false
-            state.isLoadingStream = false
         }
     }
 }

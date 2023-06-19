@@ -15,6 +15,9 @@ extension RemoteService {
         
         func reduce(state: inout Center.State) {
             state.config = nil
+            state.username = ""
+            state.isLoadingStream = false
+            state.streamURLString = nil
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 import Granite
 import SwiftUI
 
-extension Home {
+extension Menu {
     var historyView: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -51,7 +51,7 @@ extension Home {
                         .frame(minWidth: 90)
                         .frame(height: 60)
                         .onTapGesture {
-                            center.$state.binding.username.wrappedValue = item.name.wrappedValue
+                            service.center.$state.binding.username.wrappedValue = item.name.wrappedValue
                             center.setStream.send(SetStream.Meta(kind: item.kind.wrappedValue))
                         }
                     }
