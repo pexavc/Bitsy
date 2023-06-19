@@ -18,7 +18,7 @@ XMLHttpRequest.prototype.open = function (...params) {
              */
             var json = JSON.parse(this.responseText);
             
-            //"callbackHandler" is a custom message we set on the Swift side.
+            //"callbackHandler" is a custom message handler we set on the Swift side.
             webkit.messageHandlers.callbackHandler.postMessage("StreamURL: " + json.data.playback_url);
         });
     }
