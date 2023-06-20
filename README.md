@@ -24,8 +24,11 @@ Kick           |  Twitch
 ## Requirements
 
 - `iOS 14+`  ***Build passing*** 🟢 
-- `macOS 12.4+`  ***Build passing*** 🟢                     
+- `macOS 12.4+`  ***Build passing*** 🟢 
 
+**Installation**
+
+Build locally using `XCode 14.2` or download the latest *notarized* build [here](https://github.com/pexavc/Bitsy/releases).                
 
 ## Swift Packages
 
