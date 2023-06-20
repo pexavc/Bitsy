@@ -866,7 +866,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bitsy--iOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = KickIt;
+				INFOPLIST_KEY_CFBundleDisplayName = Bitsy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take pictures for encoding";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -903,7 +903,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bitsy--iOS--Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = KickIt;
+				INFOPLIST_KEY_CFBundleDisplayName = Bitsy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take pictures for encoding";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -943,6 +943,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bitsy--macOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Bitsy;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -975,6 +976,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bitsy--macOS--Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Bitsy;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
