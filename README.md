@@ -12,6 +12,7 @@ Kick           |  Twitch
   - [Intercepting](#intercepting)
   - [Bypassing Walls](#bypassing-walls)
   - [Adding a new site](#adding-a-new-site)
+- [Troubleshooting](#Troubleshooting)
 - [TODO](#TODO)
 
 **Disclaimer**
@@ -124,7 +125,7 @@ extension URLProtocol {
 
 The bigger caveat is, there is a check in place, that prevents Twitch from loading the stream at all. And my theory is around a blocked `POST` response. Which is more on Apple's side, I believe, rather than Twitch's. As a security feature to prevent unwarranted custom URL Protocols intercepting `http/https urlschemes`.
 
-So we just simply, wait for it to complete, [then we Swizzle](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L164-L169), and then unregister the overrides after we fetch the HLS url.
+So we just simply, wait for it to complete, [then we Swizzle](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L152-L157), and then unregister the overrides after we fetch the HLS url.
 
 
 ### Bypassing Walls
@@ -185,9 +186,42 @@ Then, you can play around/experiment with automation. Editing the button actions
 
 3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L139-L170) most likely.
 
+### Troubleshooting
+
+If you are stuck on an infinite loading spiral. The bypass check, might be failing. I have only setup detection for english at the moment. [Add a step for these steps here](https://github.com/pexavc/Bitsy/blob/main/Shared/Services/Remote/Utilities/WallBypasser.Step.swift#L45-L68) to the exact warning/dialog box message in your appropriate language.
+
+Set the `webViewConfig`'s `isHeadless` mode to *false* to see if the stream starts normally or to read the exact dialog box message, button action text.
+
+```swift
+extension StreamKind {
+    var bypassSteps: [WallBypasser.Step] {
+        switch self {
+        case .kick:
+            return [
+                .init(targetInnerText: "Start watching",
+                      detectionText: "",
+                      kind: .button),
+                .init(targetInnerText: "Accept",
+                      detectionText: "",
+                      kind: .button)
+            ]
+        case .twitch:
+            return [
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "The broadcaster has indicated that this channel is intended for mature audiences.",
+                      kind: .button),
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "The broadcaster indicated that this channel is intended for mature audiences.",
+                      kind: .button)
+            ]
+        }
+    }
+}
+```
+
 ## TODO
 - [x] Complete macOS implementation
-- [ ] Bypass walls properly (Age rating/Cookies dialog)
+- [ ] Bypass walls properly (Age rating/Cookies dialog) `(Partially working)`
 - [ ] Design polish
 - [ ] UX polish (username entry in-app)
 - [ ] Chat viewer
