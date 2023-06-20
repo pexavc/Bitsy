@@ -48,10 +48,10 @@ extension StreamKind {
         case .kick:
             return [
                 .init(targetInnerText: "Start watching",
-                      detectionText: "",
+                      detectionText: "This content has been marked as mature. You must be 18 or older to view this content.",
                       kind: .button),
                 .init(targetInnerText: "Accept",
-                      detectionText: "",
+                      detectionText: "Kick uses cookies to improve user experience and site performance, offer content tailored to your interests and enable social media sharing. By clicking \"Agree\" or continuing to use our site, you agree to our use of cookies and our Privacy Policy.",
                       kind: .button)
             ]
         case .twitch:
@@ -59,6 +59,7 @@ extension StreamKind {
                 .init(targetInnerText: "Start Watching",
                       detectionText: "The broadcaster has indicated that this channel is intended for mature audiences.",
                       kind: .button),
+                //Mobile view has a slightly different variation of above
                 .init(targetInnerText: "Start Watching",
                       detectionText: "The broadcaster indicated that this channel is intended for mature audiences.",
                       kind: .button)

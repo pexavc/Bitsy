@@ -35,6 +35,7 @@
 		710D8E6E2A25E2B100EB7EA1 /* AnyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D8E692A25E2B100EB7EA1 /* AnyStatus.swift */; };
 		710D8E6F2A25E2B100EB7EA1 /* LoadingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D8E6A2A25E2B100EB7EA1 /* LoadingStatus.swift */; };
 		710D8E702A25E2B100EB7EA1 /* LoadingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D8E6A2A25E2B100EB7EA1 /* LoadingStatus.swift */; };
+		710F92352A41787800F4B1BD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710F92342A41787800F4B1BD /* AVKit.framework */; };
 		711B3F8B2885D43B00F3080D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B3F8A2885D43B00F3080D /* Tests_iOS.swift */; };
 		711B3F8D2885D43B00F3080D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B3F8C2885D43B00F3080D /* Tests_iOSLaunchTests.swift */; };
 		711B3F972885D43B00F3080D /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B3F962885D43B00F3080D /* Tests_macOS.swift */; };
@@ -130,6 +131,7 @@
 		710D8E682A25E2B100EB7EA1 /* Set+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Status.swift"; sourceTree = "<group>"; };
 		710D8E692A25E2B100EB7EA1 /* AnyStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStatus.swift; sourceTree = "<group>"; };
 		710D8E6A2A25E2B100EB7EA1 /* LoadingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStatus.swift; sourceTree = "<group>"; };
+		710F92342A41787800F4B1BD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		711B3F722885D43700F3080D /* PEXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEXApp.swift; sourceTree = "<group>"; };
 		711B3F742885D43B00F3080D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711B3F792885D43B00F3080D /* Bitsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 			files = (
 				710BE4842A3F01E800840BBF /* Fuzi in Frameworks */,
 				717B09862A40E7460045CF2E /* GraniteUI in Frameworks */,
+				710F92352A41787800F4B1BD /* AVKit.framework in Frameworks */,
 				717B09842A40E7460045CF2E /* Granite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +345,7 @@
 		711B3FAF2885D46200F3080D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				710F92342A41787800F4B1BD /* AVKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -839,6 +843,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -937,7 +942,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2023061900;
 				DEVELOPMENT_TEAM = CV8LAA8JAP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -970,7 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2023061900;
 				DEVELOPMENT_TEAM = CV8LAA8JAP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
