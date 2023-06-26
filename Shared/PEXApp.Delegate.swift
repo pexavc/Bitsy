@@ -20,7 +20,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApplication.shared.delegate = self
+        //TODO: Profiles a memory leak, may be a red herring.
+        //Without this, delegates such as detecting windows closing
+        //will not fire
+        //NSApplication.shared.delegate = self
     }
 }
 #endif

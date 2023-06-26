@@ -56,8 +56,8 @@
 		717E613428A0D69B009A2B1A /* Menu._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E613228A0D69B009A2B1A /* Menu._.swift */; };
 		718FAF932A40FDCC009CCA60 /* LoadState.js in Resources */ = {isa = PBXBuildFile; fileRef = 718FAF922A40FDCC009CCA60 /* LoadState.js */; };
 		718FAF942A40FDCC009CCA60 /* LoadState.js in Resources */ = {isa = PBXBuildFile; fileRef = 718FAF922A40FDCC009CCA60 /* LoadState.js */; };
-		719696402A48BCD400EB6542 /* Menu.Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196963F2A48BCD400EB6542 /* Menu.Clip.swift */; };
-		719696412A48BCD400EB6542 /* Menu.Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196963F2A48BCD400EB6542 /* Menu.Clip.swift */; };
+		719696402A48BCD400EB6542 /* Menu.Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196963F2A48BCD400EB6542 /* Menu.Controls.swift */; };
+		719696412A48BCD400EB6542 /* Menu.Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196963F2A48BCD400EB6542 /* Menu.Controls.swift */; };
 		7196FF232A404EA000CFFA7D /* Menu.HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196FF222A404EA000CFFA7D /* Menu.HistoryView.swift */; };
 		7196FF242A404EA000CFFA7D /* Menu.HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196FF222A404EA000CFFA7D /* Menu.HistoryView.swift */; };
 		71AED0EF2A3F90CD008B3987 /* Menu.InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED0EE2A3F90CD008B3987 /* Menu.InputView.swift */; };
@@ -110,6 +110,8 @@
 		71C754D62A42A578008A4A67 /* Stream._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754D42A42A578008A4A67 /* Stream._.swift */; };
 		71DD63B62A43D89700BE2364 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = 71DD63B52A43D89700BE2364 /* GCDWebServer */; };
 		71DD63CD2A43D8F700BE2364 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = 71DD63CC2A43D8F700BE2364 /* GCDWebServer */; };
+		71F979402A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */; };
+		71F979412A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,7 +165,7 @@
 		717D388A2887A44D00165D7D /* Menu+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+View.swift"; sourceTree = "<group>"; };
 		717E613228A0D69B009A2B1A /* Menu._.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu._.swift; sourceTree = "<group>"; };
 		718FAF922A40FDCC009CCA60 /* LoadState.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = LoadState.js; sourceTree = "<group>"; };
-		7196963F2A48BCD400EB6542 /* Menu.Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.Clip.swift; sourceTree = "<group>"; };
+		7196963F2A48BCD400EB6542 /* Menu.Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.Controls.swift; sourceTree = "<group>"; };
 		7196FF222A404EA000CFFA7D /* Menu.HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.HistoryView.swift; sourceTree = "<group>"; };
 		719725FD28CC864400A64334 /* Bitsy--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bitsy--iOS--Info.plist"; sourceTree = "<group>"; };
 		71AED0EE2A3F90CD008B3987 /* Menu.InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.InputView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		71C754CA2A42773D008A4A67 /* MarbleKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MarbleKit; path = ../MarbleKit; sourceTree = "<group>"; };
 		71C754CD2A427817008A4A67 /* Granite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Granite; path = ../Granite; sourceTree = "<group>"; };
 		71C754D42A42A578008A4A67 /* Stream._.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream._.swift; sourceTree = "<group>"; };
+		71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.ControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				71AED0EE2A3F90CD008B3987 /* Menu.InputView.swift */,
+				71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */,
 				71B1793C2A46DBCB003EC72D /* Menu.MonitorView.swift */,
 				7196FF222A404EA000CFFA7D /* Menu.HistoryView.swift */,
 			);
@@ -406,7 +410,7 @@
 			children = (
 				717E613228A0D69B009A2B1A /* Menu._.swift */,
 				71AED1062A3FAD66008B3987 /* Menu.Stream.swift */,
-				7196963F2A48BCD400EB6542 /* Menu.Clip.swift */,
+				7196963F2A48BCD400EB6542 /* Menu.Controls.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -685,6 +689,7 @@
 				71AED0FE2A3FA823008B3987 /* GraniteWebView.swift in Sources */,
 				710BE47C2A3EF9D600840BBF /* RemoteService.swift in Sources */,
 				71C754D52A42A578008A4A67 /* Stream._.swift in Sources */,
+				71F979402A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */,
 				71C754C62A42771B008A4A67 /* Canvas+View.swift in Sources */,
 				71AED13A2A400092008B3987 /* WebView.Swizzle.swift in Sources */,
 				71AED0F52A3F9743008B3987 /* WebView.Coordinator.swift in Sources */,
@@ -707,7 +712,7 @@
 				710D8E6F2A25E2B100EB7EA1 /* LoadingStatus.swift in Sources */,
 				717D388B2887A44D00165D7D /* Menu+View.swift in Sources */,
 				71B1793D2A46DBCB003EC72D /* Menu.MonitorView.swift in Sources */,
-				719696402A48BCD400EB6542 /* Menu.Clip.swift in Sources */,
+				719696402A48BCD400EB6542 /* Menu.Controls.swift in Sources */,
 				71C754C82A42771B008A4A67 /* Canvas.swift in Sources */,
 				71AED1172A3FB87B008B3987 /* WallBypasser.Step.swift in Sources */,
 				71AED0FB2A3F9E36008B3987 /* WebView.Actions.swift in Sources */,
@@ -731,6 +736,7 @@
 				71AED0FF2A3FA823008B3987 /* GraniteWebView.swift in Sources */,
 				710BE47D2A3EF9D600840BBF /* RemoteService.swift in Sources */,
 				71C754D62A42A578008A4A67 /* Stream._.swift in Sources */,
+				71F979412A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */,
 				71C754C72A42771B008A4A67 /* Canvas+View.swift in Sources */,
 				71AED13B2A400092008B3987 /* WebView.Swizzle.swift in Sources */,
 				71AED0F62A3F9743008B3987 /* WebView.Coordinator.swift in Sources */,
@@ -753,7 +759,7 @@
 				710D8E702A25E2B100EB7EA1 /* LoadingStatus.swift in Sources */,
 				717D388C2887A44D00165D7D /* Menu+View.swift in Sources */,
 				71B1793E2A46DBCB003EC72D /* Menu.MonitorView.swift in Sources */,
-				719696412A48BCD400EB6542 /* Menu.Clip.swift in Sources */,
+				719696412A48BCD400EB6542 /* Menu.Controls.swift in Sources */,
 				71C754C92A42771B008A4A67 /* Canvas.swift in Sources */,
 				71AED1182A3FB87B008B3987 /* WallBypasser.Step.swift in Sources */,
 				71AED0FC2A3F9E36008B3987 /* WebView.Actions.swift in Sources */,

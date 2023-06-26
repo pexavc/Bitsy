@@ -20,6 +20,9 @@ extension Menu {
             
             var showUsernameEntry: Bool = true
             var errorMessage: String? = nil
+            
+            var fxEnabled: Bool = MarbleRemote.enableFX
+            var fx: [MarbleEffect] = MarbleRemote.fx
         }
 
         @Event var reset: Reset.Reducer
@@ -27,7 +30,7 @@ extension Menu {
         @Event var setStream: SetStream.Reducer
         @Event var renderStream: RenderStream.Reducer
         
-        @Event var clip: Clip.Reducer
+        @Event var control: Control.Reducer
         
         @Store public var state: Center.State
     }

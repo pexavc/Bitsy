@@ -21,54 +21,7 @@ extension Menu {
             }
             
             if state.showUsernameEntry == false {
-                HStack(spacing: 16) {
-                    Spacer()
-                    
-                    Button {
-                        center.toggleEditStream.send()
-                    } label: {
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                            .font(.title3.bold())
-                            .frame(width: 22, height: 22)
-                    }.buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        center.clip.send()
-                    } label: {
-                        Image(systemName: "record.circle")
-                            .resizable()
-                            .font(.title3.bold())
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.red)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        MarbleRemote.enableFX.toggle()
-                    } label: {
-                        Image(systemName: "record.circle.fill")
-                            .resizable()
-                            .font(.title3.bold())
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.red)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Button {
-                        center.reset.send()
-                    } label: {
-                        Image(systemName: "arrow.counterclockwise.circle")
-                            .resizable()
-                            .font(.title3.bold())
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.red)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Spacer()
-                }
-                .padding(.bottom, 16)
+                controlView
             } else {
                 Button {
                     center.reset.send()
@@ -82,7 +35,6 @@ extension Menu {
                 .buttonStyle(PlainButtonStyle())
                 .padding(.top, 16)
             }
-            
             
             if (state.showUsernameEntry &&
                 service.state.config != nil) ||

@@ -24,6 +24,6 @@ struct Canvas: GraniteComponent {
     init(config: MarbleRemoteConfig) {
         self.config = config
         MarbleRemote.enableFX = false
-        MarblePlayerOptions.isVideoClippingEnabled = false
+        MarblePlayerOptions.isVideoClippingEnabled = true
     }
 }

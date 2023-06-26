@@ -32,31 +32,26 @@ fileprivate func createHandler(_ handler: WKScriptMessageHandlerWithReply) -> WK
     return contentController
 }
 
-fileprivate func loadedJSCallback(_ controller: WKUserContentController) {
-    if let jsSource = Bundle.main.url(forResource: "LoadState", withExtension: "js"),
+fileprivate func loadJS(_ fileName: String,
+                        controller: WKUserContentController) {
+    if let jsSource = Bundle.main.url(forResource: fileName, withExtension: "js"),
         let jsSourceString = try? String(contentsOf: jsSource) {
         let userScript = WKUserScript(source: jsSourceString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-
+        
         controller.addUserScript(userScript)
     }
+}
+
+fileprivate func loadedJSCallback(_ controller: WKUserContentController) {
+    loadJS("LoadState", controller: controller)
 }
 
 fileprivate func videoEventJSCallback(_ controller: WKUserContentController) {
-    if let jsSource = Bundle.main.url(forResource: "VideoPlayerEvent", withExtension: "js"),
-        let jsSourceString = try? String(contentsOf: jsSource) {
-        let userScript = WKUserScript(source: jsSourceString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-
-        controller.addUserScript(userScript)
-    }
+    loadJS("VideoPlayerEvent", controller: controller)
 }
 
 fileprivate func xhrEventJSCallback(_ controller: WKUserContentController) {
-    if let jsSource = Bundle.main.url(forResource: "InterceptXHR", withExtension: "js"),
-        let jsSourceString = try? String(contentsOf: jsSource) {
-        let userScript = WKUserScript(source: jsSourceString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-
-        controller.addUserScript(userScript)
-    }
+    loadJS("InterceptXHR", controller: controller)
 }
 
 #if os(iOS)
@@ -177,8 +172,6 @@ public struct WebView: NSViewRepresentable {
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = config.allowsBackForwardNavigationGestures
-        
-        //Swizzle
         
         return webView
     }
