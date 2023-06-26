@@ -8,6 +8,7 @@
 import Foundation
 import Granite
 import SwiftUI
+import MarbleKit
 
 extension Menu {
     var historyView: some View {
@@ -65,7 +66,7 @@ extension Menu {
     }
 }
 
-extension StreamKind {
+extension MarbleRemoteConfig.StreamConfig.Kind {
     var color: Color {
         switch self {
         case .kick:

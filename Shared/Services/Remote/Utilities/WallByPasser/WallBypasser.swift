@@ -7,9 +7,10 @@
 
 import Foundation
 import Fuzi
+import MarbleKit
 
 class WallBypasser: NSObject {
-    let kind: StreamKind
+    let kind: MarbleRemoteConfig.StreamConfig.Kind
     var steps: [WallBypasser.Step]
     
     var detectedWall: Bool {
@@ -21,7 +22,7 @@ class WallBypasser: NSObject {
     var htmlString: String? = nil
     var htmlDocument: HTMLDocument? = nil
     
-    init(_ kind: StreamKind) {
+    init(_ kind: MarbleRemoteConfig.StreamConfig.Kind) {
         self.kind = kind
         self.steps = []
         super.init()

@@ -33,6 +33,16 @@ extension Menu: View {
             if state.showUsernameEntry && service.state.history.isEmpty == false {
                 historyView
             }
+            
+            VStack {
+                HStack {
+                    MonitorView()
+                    Spacer()
+                }
+                
+                Spacer()
+            }
+            .allowsHitTesting(false)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

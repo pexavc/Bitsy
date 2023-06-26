@@ -14,12 +14,4 @@ extension Stream {
               isHeadless: true,
               isDebug: false)
     }
-    
-    var remote: VideoRemote? {
-        if let config = service.state.config {
-            return .init(video: config)
-        } else {
-            return nil
-        }
-    }
 }

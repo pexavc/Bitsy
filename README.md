@@ -17,9 +17,7 @@ Kick           |  Twitch
 
 **Disclaimer**
 
-1. This implementation, uses a method of Swizzling and editing "Private APIs" in WKWebView, to intercept requests. This is against App Review guidelines and is not recommended to be used in production builds.
-
-2. While building this, I have discovered some new limitations around [Granite](https://github.com/pexavc/Granite), which I will be addressing soon. If some UX interactions seem fragile/odd, I am aware of them. Like [Issue #1](https://github.com/pexavc/Granite/issues/1) in the repo, these are quite deep and have simply been sidetracked open-sourcing and/or building out small fun tools like Bitsy.
+This implementation, uses a method of Swizzling and editing "Private APIs" in WKWebView, to intercept requests. This is against App Review guidelines and is not recommended to be used in production builds.
 
 ## Requirements
 

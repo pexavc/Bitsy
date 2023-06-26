@@ -12,9 +12,5 @@ import Combine
 struct Menu: GraniteComponent {
     @Command var center: Center
     @Relay var service: RemoteService
-    
-    
-    @State public var action = WebViewAction.idle
-    @State public var state = WebViewState.empty
 }
 

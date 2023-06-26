@@ -7,6 +7,7 @@
 
 import Foundation
 import Granite
+import MarbleKit
 
 extension WallBypasser {
     struct Step: GraniteModel {
@@ -42,7 +43,7 @@ extension WallBypasser {
     }
 }
 
-extension StreamKind {
+extension MarbleRemoteConfig.StreamConfig.Kind {
     var bypassSteps: [WallBypasser.Step] {
         switch self {
         case .kick:

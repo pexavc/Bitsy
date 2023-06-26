@@ -8,6 +8,7 @@
 import Foundation
 import Granite
 import SwiftUI
+import MarbleKit
 
 extension Menu {
     struct SetStream: GraniteReducer {
@@ -15,7 +16,7 @@ extension Menu {
         
         struct Meta: GranitePayload {
             var username: String
-            var kind: StreamKind
+            var kind: MarbleRemoteConfig.StreamConfig.Kind
         }
         
         @Relay var service: RemoteService
@@ -33,7 +34,7 @@ extension Menu {
                 return
             }
             
-            let streamKind: StreamKind = meta?.kind ?? state.streamKind
+            let streamKind: MarbleRemoteConfig.StreamConfig.Kind = meta?.kind ?? state.streamKind
             
             var baseURLString: String = "https://"
             

@@ -8,6 +8,7 @@
 import Foundation
 import Granite
 import SwiftUI
+import MarbleKit
 
 extension Menu {
     var inputView: some View {
@@ -20,38 +21,54 @@ extension Menu {
             }
             
             if state.showUsernameEntry == false {
-                HStack {
+                HStack(spacing: 16) {
                     Spacer()
                     
-                    VStack(alignment: .trailing, spacing: 16) {
-                        Spacer()
-                        
-                        Button {
-                            center.toggleEditStream.send()
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                                .resizable()
-                                .font(.title3.bold())
-                                .frame(width: 22, height: 22)
-                        }.buttonStyle(PlainButtonStyle())
-                        
-                        Button {
-                            center.reset.send()
-                        } label: {
-                            Image(systemName: "arrow.counterclockwise.circle")
-                                .resizable()
-                                .font(.title3.bold())
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(.red)
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        
-                        Spacer()
+                    Button {
+                        center.toggleEditStream.send()
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .font(.title3.bold())
+                            .frame(width: 22, height: 22)
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        center.clip.send()
+                    } label: {
+                        Image(systemName: "record.circle")
+                            .resizable()
+                            .font(.title3.bold())
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.red)
                     }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        MarbleRemote.enableFX.toggle()
+                    } label: {
+                        Image(systemName: "record.circle.fill")
+                            .resizable()
+                            .font(.title3.bold())
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.red)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button {
+                        center.reset.send()
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise.circle")
+                            .resizable()
+                            .font(.title3.bold())
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.red)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Spacer()
                 }
-                .frame(maxWidth: .infinity,
-                       maxHeight: .infinity)
-                .padding(.trailing, 16)
+                .padding(.bottom, 16)
             } else {
                 Button {
                     center.reset.send()
@@ -96,7 +113,7 @@ extension Menu {
             
             TextField(
                 "\(state.streamKind.rawValue.capitalized) username",
-                text: center.$state.binding.username
+                text: _state.username
             )
             .autocorrectionDisabled()
             .textFieldStyle(PlainTextFieldStyle())
@@ -112,21 +129,21 @@ extension Menu {
                 #if os(iOS)
                 Picker(selection: center.$state.binding.streamKind,
                        label: Text("Site:")) {
-                    ForEach(StreamKind.allCases, id: \.self) { kind in
+                    ForEach(MarbleRemoteConfig.StreamConfig.Kind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized)
                             .font(.headline.bold())
                             .cornerRadius(8)
                             .tag(kind)
                     }
                 }
-               .background(
-                   RoundedRectangle(cornerRadius: 8)
-                       .foregroundColor(Color.white.opacity(0.15))
-               )
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .foregroundColor(Color.white.opacity(0.15))
+                )
                 #elseif os(macOS)
                 Picker(selection: center.$state.binding.streamKind,
                        label: Text("Site:")) {
-                    ForEach(StreamKind.allCases, id: \.self) { kind in
+                    ForEach(MarbleRemoteConfig.StreamConfig.Kind.allCases, id: \.self) { kind in
                         Text(kind.rawValue.capitalized).tag(kind)
                     }
                 }.pickerStyle(RadioGroupPickerStyle())
