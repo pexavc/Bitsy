@@ -28,12 +28,6 @@ extension Menu: View {
                 .opacity(state.showUsernameEntry ? 0.25 : 1.0)
             }
             
-            inputView
-            
-            if state.showUsernameEntry && service.state.history.isEmpty == false {
-                historyView
-            }
-            
             VStack {
                 HStack {
                     MonitorView()
@@ -42,7 +36,12 @@ extension Menu: View {
                 
                 Spacer()
             }
-            .allowsHitTesting(false)
+            
+            inputView
+            
+            if state.showUsernameEntry && service.state.history.isEmpty == false {
+                historyView
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

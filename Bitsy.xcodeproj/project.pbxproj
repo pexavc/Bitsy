@@ -112,6 +112,8 @@
 		71DD63CD2A43D8F700BE2364 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = 71DD63CC2A43D8F700BE2364 /* GCDWebServer */; };
 		71F979402A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */; };
 		71F979412A4A0C6100FC7BAF /* Menu.ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */; };
+		71F979432A4A844300FC7BAF /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F979422A4A844300FC7BAF /* CustomSliderView.swift */; };
+		71F979442A4A844300FC7BAF /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F979422A4A844300FC7BAF /* CustomSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,7 @@
 		71C754CD2A427817008A4A67 /* Granite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Granite; path = ../Granite; sourceTree = "<group>"; };
 		71C754D42A42A578008A4A67 /* Stream._.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream._.swift; sourceTree = "<group>"; };
 		71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.ControlView.swift; sourceTree = "<group>"; };
+		71F979422A4A844300FC7BAF /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +449,7 @@
 			children = (
 				71AED0EB2A3F9035008B3987 /* WebView */,
 				71AED1002A3FA959008B3987 /* CheckBoxStyle.swift */,
+				71F979422A4A844300FC7BAF /* CustomSliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -697,6 +701,7 @@
 				71AED1142A3FB4F9008B3987 /* WallBypasser.Bypass.swift in Sources */,
 				71AED1102A3FB497008B3987 /* WallBypasser.swift in Sources */,
 				71AED1012A3FA959008B3987 /* CheckBoxStyle.swift in Sources */,
+				71F979432A4A844300FC7BAF /* CustomSliderView.swift in Sources */,
 				710D8E6B2A25E2B100EB7EA1 /* Set+Status.swift in Sources */,
 				710BE44D2A3EDC5200840BBF /* Stream+View.swift in Sources */,
 				711B3FDD2885D4F000F3080D /* Menu.swift in Sources */,
@@ -744,6 +749,7 @@
 				71AED1152A3FB4F9008B3987 /* WallBypasser.Bypass.swift in Sources */,
 				71AED1112A3FB497008B3987 /* WallBypasser.swift in Sources */,
 				71AED1022A3FA959008B3987 /* CheckBoxStyle.swift in Sources */,
+				71F979442A4A844300FC7BAF /* CustomSliderView.swift in Sources */,
 				710D8E6C2A25E2B100EB7EA1 /* Set+Status.swift in Sources */,
 				710BE44E2A3EDC5200840BBF /* Stream+View.swift in Sources */,
 				711B3FDE2885D4F000F3080D /* Menu.swift in Sources */,
