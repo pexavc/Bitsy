@@ -11,11 +11,11 @@ extension Menu: View {
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .foregroundColor(
-                    Color.black.opacity(state.showUsernameEntry || service.state.isLoadingStream ? 0.9 : 0.0)
+                    Color.black.opacity(streamIsActive || state.showUsernameEntry == false ? 0.0 : 0.5)
                 )
                 .animation(.default,
                            value: state.showUsernameEntry || service.state.isLoadingStream)
-            
+//
             if service.state.isLoadingStream {
                 VStack {
                     Spacer()
@@ -28,20 +28,13 @@ extension Menu: View {
                 .opacity(state.showUsernameEntry ? 0.25 : 1.0)
             }
             
-            VStack {
-                HStack {
-                    MonitorView()
-                    Spacer()
-                }
-                
-                Spacer()
-            }
+            MonitorView()
+            
+//            if state.showUsernameEntry {
+//                Color.black.opacity(0.9)
+//            }
             
             inputView
-            
-            if state.showUsernameEntry && service.state.history.isEmpty == false {
-                historyView
-            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

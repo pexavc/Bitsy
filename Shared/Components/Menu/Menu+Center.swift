@@ -21,8 +21,8 @@ extension Menu {
             var showUsernameEntry: Bool = true
             var errorMessage: String? = nil
             
-            var fxEnabled: Bool = MarbleRemote.enableFX
-            var fx: [MarbleEffect] = MarbleRemote.fx
+            var fxEnabled: Bool = false
+            var fx: [MarbleEffect] = []
         }
 
         @Event var reset: Reset.Reducer

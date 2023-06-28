@@ -25,33 +25,31 @@ extension Menu {
                 } label : {
                     
                     Image(systemName: "trash")
-                        .resizable()
-                        .font(.title3.bold())
-                        .frame(width: 20, height: 20)
+                        .font(.headline.bold())
+                        .foregroundColor(.white)
                     
                 }.buttonStyle(PlainButtonStyle())
             }
             
-            ScrollView([.horizontal]) {
+            ScrollView([.horizontal], showsIndicators: false) {
                 HStack {
                     ForEach(service.center.$state.binding.history, id: \.self) { item in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .foregroundColor(item.kind.wrappedValue.color.opacity(0.5))
+                        VStack {
+                            Text(item.name.wrappedValue)
+                                .font(.title3.bold())
+                                .foregroundColor(.white)
                             
-                            VStack {
-                                Text(item.name.wrappedValue)
-                                    .font(.title.bold())
-                                    .foregroundColor(.white)
-                                
-                                Text(item.kind.wrappedValue.rawValue.capitalized)
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                            }
-                            .padding(.horizontal, 16)
+                            Text(item.kind.wrappedValue.rawValue.capitalized)
+                                .font(.footnote)
+                                .foregroundColor(.white)
                         }
                         .frame(minWidth: 90)
-                        .frame(height: 60)
+                        .frame(height: 40)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .foregroundColor(item.kind.wrappedValue.color))
                         .onTapGesture {
                             center.setStream.send(SetStream.Meta(username: item.name.wrappedValue,
                                                                  kind: item.kind.wrappedValue))
@@ -59,10 +57,7 @@ extension Menu {
                     }
                 }
             }
-            
-            Spacer()
         }
-        .padding(16)
     }
 }
 

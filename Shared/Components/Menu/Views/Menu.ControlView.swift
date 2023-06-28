@@ -2,7 +2,7 @@
 //  Menu.ControlView.swift
 //  Bitsy
 //
-//  Created by Ritesh Pakala on 6/26/23.
+//  Created by PEXAVC on 6/26/23.
 //
 
 import Foundation
@@ -16,87 +16,105 @@ extension Menu {
     }
     
     var controlView: some View {
-        VStack {
+        HStack(spacing: 16) {
+            Button {
+                center.toggleEditStream.send()
+            } label: {
+                Image(systemName: state.showUsernameEntry ? "arrow.backward.square" : "square.and.pencil")
+                    .font(.title.bold())
+                    .frame(width: 24, height: 24)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.black.opacity(0.75))
+            )
+            
+            Spacer()
+            
             HStack(spacing: 16) {
-                Button {
-                    center.toggleEditStream.send()
-                } label: {
-                    Image(systemName: "square.and.pencil")
-                        .resizable()
-                        .font(.title3.bold())
-                        .frame(width: 22, height: 22)
-                }.buttonStyle(PlainButtonStyle())
-                
-                Spacer()
-                
                 Button {
                     center.control.send(Menu.Control.Meta(control: .clip))
                 } label: {
                     Image(systemName: "scissors")
                         .font(.title3.bold())
-                        .frame(width: 24, height: 24)
+                        .frame(width: 24)
                         .foregroundColor(.white)
                         .padding(.top, 2)
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding(.trailing, 8)
                 
-                HStack {
-                    Button {
-                        center.control.send(Menu.Control.Meta(control: .toggleFX))
-                    } label: {
-                        Image(systemName: "fx")
-                            .font(.title3.bold())
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(state.fxEnabled ? .black : .white)
-                            .padding(.horizontal, 4)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    if state.fxEnabled {
-                        ForEach(MarbleEffect.effects2D, id: \.self) { effect in
-                            
-                            Button {
-                                center.control.send(Menu.Control.Meta(control: .modifyFX(effect)))
-                            } label: {
-                                Text("\(effect.rawValue)")
-                                    .font(.headline.bold())
-                                    .frame(height: 24)
-                                    .foregroundColor(state.fx.contains(effect) ? .white : .black)
-                                    .padding(.horizontal, 4)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 4.0)
-                                            .stroke(.white, lineWidth: 2.0)
-                                            .background(state.fx.contains(effect) ? .black : .clear)
-                                )
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
+                Button {
+                    center.control.send(Menu.Control.Meta(control: .toggleFX))
+                } label: {
+                    Image(systemName: "fx")
+                        .font(.title3.bold())
+                        .frame(width: 24)
+                        .foregroundColor(state.fxEnabled ? .black : .white)
+                        .padding(4)
                 }
+                .buttonStyle(PlainButtonStyle())
                 .background(
                     RoundedRectangle(cornerRadius: 4.0)
                         .stroke(.white, lineWidth: 2.0)
                         .background(state.fxEnabled ? .white : .clear)
                 )
-                .animation(.default, value: state.fxEnabled)
-                
-                Spacer()
-                
-                Button {
-                    center.reset.send()
-                } label: {
-                    Image(systemName: "arrow.counterclockwise.circle")
-                        .resizable()
-                        .font(.title3.bold())
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.red)
-                }
-                .buttonStyle(PlainButtonStyle())
             }
-            .padding(.bottom, 8)
-            .padding(.horizontal, 32)
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.black.opacity(0.75))
+            )
+            
+            Spacer()
+            
+            Button {
+                center.reset.send()
+            } label: {
+                Image(systemName: "arrow.counterclockwise.circle")
+                    .font(.title.bold())
+                    .frame(width: 24)
+                    .foregroundColor(.red)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(12)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.black.opacity(0.75))
+            )
         }
-        .frame(height: Menu.controlsHeight)
+    }
+    
+    var fxView: some View {
+        ScrollView([.horizontal], showsIndicators: false) {
+            HStack {
+                ForEach(MarbleEffect.effects2D, id: \.self) { effect in
+                    
+                    Button {
+                        center.control.send(Menu.Control.Meta(control: .modifyFX(effect)))
+                    } label: {
+                        Text("\(effect.rawValue)")
+                            .font(.title3.bold())
+                            .foregroundColor(state.fx.contains(effect) ? .white : .black)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .fill(state.fx.contains(effect) ? .black : .white)
+                    )
+                }
+            }
+            .padding(.horizontal, 8)
+        }
+        .frame(maxWidth: 300)
+        .frame(height: 44)
+        .background(
+            RoundedRectangle(cornerRadius: 8.0)
+                .fill(.white)
+        )
     }
 }

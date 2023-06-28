@@ -11,51 +11,63 @@ import SwiftUI
 import MarbleKit
 
 extension Menu {
+    var streamIsActive: Bool {
+        (state.showUsernameEntry &&
+            service.state.config != nil) ||
+            (state.showUsernameEntry &&
+             service.state.isLoadingStream)
+    }
+    
     var inputView: some View {
-        VStack(spacing: 0) {
-            if state.showUsernameEntry {
-                usernameEntry
-                    .frame(maxWidth: 200)
-            } else {
-                Spacer()
-            }
-            
-            if state.showUsernameEntry == false {
-                controlView
-            } else {
-                Button {
-                    center.reset.send()
-                } label: {
-                    Image(systemName: "arrow.counterclockwise.circle")
-                        .resizable()
-                        .font(.title3.bold())
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.red)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.top, 16)
-            }
-            
-            if (state.showUsernameEntry &&
-                service.state.config != nil) ||
-                (state.showUsernameEntry &&
-                 service.state.isLoadingStream) {
+        ZStack {
+            VStack {
                 
-                Button {
-                    center.toggleEditStream.send()
-                } label: {
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .font(.title3.bold())
-                        .frame(width: 16, height: 16)
+                Spacer()
+                
+                if state.showUsernameEntry && service.state.history.isEmpty == false {
+                    
+                    HStack {
+                        historyView
+                            .frame(maxWidth: 200)
+                            .padding(16)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.black.opacity(0.75))
+                            )
+                        
+                        Spacer()
+                    }
                 }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.top, 12)
+                
+                if state.showUsernameEntry {
+                    HStack {
+                        
+                        usernameEntry
+                            .frame(maxWidth: 200)
+                            .padding(16)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.black.opacity(0.75))
+                            )
+                        
+                        Spacer()
+                    }
+                }
+                
+                controlView
+                    .frame(height: Menu.controlsHeight - 16 - 4, alignment: .bottom)
             }
+            
+            VStack {
+                Spacer()
+                if state.fxEnabled {
+                    fxView
+                }
+            }
+            .padding(.bottom, (Menu.controlsHeight - 16 - 4) + 10)//10 = default V stack padding
         }
-        .frame(maxWidth: .infinity,
-               maxHeight: .infinity)
         .animation(.default, value: state.showUsernameEntry)
+        .padding(16)
     }
     
     var usernameEntry: some View {

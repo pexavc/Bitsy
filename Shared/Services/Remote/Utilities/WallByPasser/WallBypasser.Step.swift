@@ -63,6 +63,10 @@ extension MarbleRemoteConfig.StreamConfig.Kind {
                 //Mobile view has a slightly different variation of above
                 .init(targetInnerText: "Start Watching",
                       detectionText: "The broadcaster indicated that this channel is intended for mature audiences.",
+                      kind: .button),
+                //Another variant
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "content is intended for certain audiences",
                       kind: .button)
             ]
         }

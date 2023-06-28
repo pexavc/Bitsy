@@ -24,8 +24,8 @@ extension Menu {
             case .clip:
                 MarbleRemote.current.clip()
             case .toggleFX:
-                MarbleRemote.enableFX.toggle()
-                state.fxEnabled = MarbleRemote.enableFX
+                //MarbleRemote.enableFX.toggle()
+                state.fxEnabled.toggle()
             case .modifyFX(let effect):
                 var currentFX: [MarbleEffect] = state.fx
                 let lastCount = currentFX.count

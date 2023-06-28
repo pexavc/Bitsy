@@ -8,7 +8,7 @@ extension Stream: View {
             VStack {
                 if let config = service.state.config {
                     Canvas(config: config)
-                        .padding(.bottom, Menu.controlsHeight)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if let urlString = service.state.streamURLString {
                     GraniteWebView(config: webViewConfig,
                                    urlString: urlString)
