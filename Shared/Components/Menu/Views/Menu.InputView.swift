@@ -24,7 +24,7 @@ extension Menu {
                 
                 Spacer()
                 
-                if state.showUsernameEntry && service.state.history.isEmpty == false {
+                if state.showUsernameEntry && configService.state.history.isEmpty == false {
                     
                     HStack {
                         historyView

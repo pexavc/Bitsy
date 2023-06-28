@@ -40,6 +40,8 @@ extension RemoteService {
             var url: URL
         }
         
+        @Relay var service: ConfigService
+        
         @Payload var meta: Meta?
         
         func reduce(state: inout Center.State) {
@@ -54,9 +56,7 @@ extension RemoteService {
             
             state.config = config
             
-            var newHistory = Array(state.history.prefix(6))
-            newHistory.insert(config, at: 0)
-            state.history = newHistory
+            service.center.setHistory.send(ConfigService.SetHistory.Meta(config: config))
             
             state.isLoadingStream = false
         }

@@ -34,6 +34,8 @@ extension Menu {
                 return
             }
             
+            MarbleRemote.current.shutdown()
+            
             let streamKind: MarbleRemoteConfig.StreamConfig.Kind = meta?.kind ?? state.streamKind
             
             var baseURLString: String = "https://"

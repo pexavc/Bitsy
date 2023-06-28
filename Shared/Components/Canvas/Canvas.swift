@@ -2,7 +2,7 @@
 //  CanvasComponent.swift
 //  marble
 //
-//  Created by 0xKala on 2/26/21.
+//  Created by PEXAVC on 2/26/21.
 //  Copyright (c) 2021 Stoic Collective, LLC.. All rights reserved.
 //
 
@@ -27,7 +27,7 @@ struct Canvas: GraniteComponent {
         
         MarblePlayerOptions.isAutoPlay = false
         MarblePlayerOptions.isSeekedAutoPlay = false
-        MarblePlayerOptions.preferredForwardBufferDuration = 12
+        MarblePlayerOptions.preferredForwardBufferDuration = 4
         MarblePlayerOptions.maxBufferDuration = 48
         MarblePlayerOptions.dropVideoFrame = false
         MarblePlayerOptions.forcePreferredFPS = false

@@ -12,5 +12,6 @@ import Combine
 struct Menu: GraniteComponent {
     @Command var center: Center
     @Relay var service: RemoteService
+    @Relay var configService: ConfigService
 }
 

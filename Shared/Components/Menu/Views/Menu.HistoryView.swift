@@ -21,7 +21,7 @@ extension Menu {
                 Spacer()
                 
                 Button {
-                    service.center.clearHistory.send()
+                    configService.center.clearHistory.send()
                 } label : {
                     
                     Image(systemName: "trash")
@@ -33,7 +33,7 @@ extension Menu {
             
             ScrollView([.horizontal], showsIndicators: false) {
                 HStack {
-                    ForEach(service.center.$state.binding.history, id: \.self) { item in
+                    ForEach(configService.center.$state.binding.history, id: \.self) { item in
                         VStack {
                             Text(item.name.wrappedValue)
                                 .font(.title3.bold())

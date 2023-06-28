@@ -15,7 +15,7 @@ extension Menu: View {
                 )
                 .animation(.default,
                            value: state.showUsernameEntry || service.state.isLoadingStream)
-//
+            
             if service.state.isLoadingStream {
                 VStack {
                     Spacer()
@@ -29,10 +29,6 @@ extension Menu: View {
             }
             
             MonitorView()
-            
-//            if state.showUsernameEntry {
-//                Color.black.opacity(0.9)
-//            }
             
             inputView
         }

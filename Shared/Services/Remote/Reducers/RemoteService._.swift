@@ -22,12 +22,4 @@ extension RemoteService {
             MarbleRemote.current.shutdown()
         }
     }
-    
-    struct ClearHistory: GraniteReducer {
-        typealias Center = RemoteService.Center
-        
-        func reduce(state: inout Center.State) {
-            state.history = []
-        }
-    }
 }
