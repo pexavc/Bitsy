@@ -229,7 +229,6 @@ extension MonitorView {
                     
                     Text("\(bufferingProgress)%")
                         .font(.title3.bold())
-                        .frame(width: 40)
                 }
                 .padding(16)
                 .background(

@@ -16,7 +16,7 @@ extension Menu {
         struct State: GraniteState {
             var username: String = ""
             var username2: String = ""
-            var streamKind: MarbleRemoteConfig.StreamConfig.Kind = .kick
+            var streamKind: MarbleRemoteConfig.StreamConfig.Kind = .twitch
             
             var showUsernameEntry: Bool = true
             var errorMessage: String? = nil
