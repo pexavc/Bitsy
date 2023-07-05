@@ -62,6 +62,13 @@
 		7196FF242A404EA000CFFA7D /* Menu.HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196FF222A404EA000CFFA7D /* Menu.HistoryView.swift */; };
 		71A11CC42A53683C00B5BF5D /* ConfigService._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A11CC32A53683C00B5BF5D /* ConfigService._.swift */; };
 		71A11CC52A53683C00B5BF5D /* ConfigService._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A11CC32A53683C00B5BF5D /* ConfigService._.swift */; };
+		71AB15D52A55138300E0FAB4 /* Granite in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15D42A55138300E0FAB4 /* Granite */; };
+		71AB15D72A55138300E0FAB4 /* GraniteML in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15D62A55138300E0FAB4 /* GraniteML */; };
+		71AB15D92A55138300E0FAB4 /* GraniteUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15D82A55138300E0FAB4 /* GraniteUI */; };
+		71AB15DC2A55139600E0FAB4 /* MarbleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15DB2A55139600E0FAB4 /* MarbleKit */; };
+		71AB15DE2A5513A700E0FAB4 /* Granite in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15DD2A5513A700E0FAB4 /* Granite */; };
+		71AB15E02A5513A700E0FAB4 /* GraniteUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15DF2A5513A700E0FAB4 /* GraniteUI */; };
+		71AB15E22A5513A700E0FAB4 /* MarbleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71AB15E12A5513A700E0FAB4 /* MarbleKit */; };
 		71AED0EF2A3F90CD008B3987 /* Menu.InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED0EE2A3F90CD008B3987 /* Menu.InputView.swift */; };
 		71AED0F02A3F90CD008B3987 /* Menu.InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED0EE2A3F90CD008B3987 /* Menu.InputView.swift */; };
 		71AED0F22A3F973C008B3987 /* WebView.Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED0F12A3F973C008B3987 /* WebView.Models.swift */; };
@@ -92,10 +99,6 @@
 		71AED1382A3FE7C7008B3987 /* InterceptXHR.js in Resources */ = {isa = PBXBuildFile; fileRef = 71AED1362A3FE7C7008B3987 /* InterceptXHR.js */; };
 		71AED13A2A400092008B3987 /* WebView.Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED1392A400092008B3987 /* WebView.Swizzle.swift */; };
 		71AED13B2A400092008B3987 /* WebView.Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AED1392A400092008B3987 /* WebView.Swizzle.swift */; };
-		71B179172A46822D003EC72D /* Granite in Frameworks */ = {isa = PBXBuildFile; productRef = 71B179162A46822D003EC72D /* Granite */; };
-		71B179192A46822D003EC72D /* GraniteML in Frameworks */ = {isa = PBXBuildFile; productRef = 71B179182A46822D003EC72D /* GraniteML */; };
-		71B1791B2A46822D003EC72D /* GraniteUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71B1791A2A46822D003EC72D /* GraniteUI */; };
-		71B1791D2A46822D003EC72D /* MarbleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71B1791C2A46822D003EC72D /* MarbleKit */; };
 		71B1793D2A46DBCB003EC72D /* Menu.MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B1793C2A46DBCB003EC72D /* Menu.MonitorView.swift */; };
 		71B1793E2A46DBCB003EC72D /* Menu.MonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B1793C2A46DBCB003EC72D /* Menu.MonitorView.swift */; };
 		71C4E0F72A4BA846003AD4F1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4E0F62A4BA846003AD4F1 /* Device.swift */; };
@@ -112,10 +115,6 @@
 		71C754C72A42771B008A4A67 /* Canvas+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754B62A42771B008A4A67 /* Canvas+View.swift */; };
 		71C754C82A42771B008A4A67 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754B72A42771B008A4A67 /* Canvas.swift */; };
 		71C754C92A42771B008A4A67 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754B72A42771B008A4A67 /* Canvas.swift */; };
-		71C754CC2A427748008A4A67 /* MarbleKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71C754CB2A427748008A4A67 /* MarbleKit */; };
-		71C754CF2A427838008A4A67 /* Granite in Frameworks */ = {isa = PBXBuildFile; productRef = 71C754CE2A427838008A4A67 /* Granite */; };
-		71C754D12A427839008A4A67 /* GraniteUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71C754D02A427839008A4A67 /* GraniteUI */; };
-		71C754D32A427BD4008A4A67 /* GraniteML in Frameworks */ = {isa = PBXBuildFile; productRef = 71C754D22A427BD4008A4A67 /* GraniteML */; };
 		71C754D52A42A578008A4A67 /* Stream._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754D42A42A578008A4A67 /* Stream._.swift */; };
 		71C754D62A42A578008A4A67 /* Stream._.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C754D42A42A578008A4A67 /* Stream._.swift */; };
 		71DD63B62A43D89700BE2364 /* GCDWebServer in Frameworks */ = {isa = PBXBuildFile; productRef = 71DD63B52A43D89700BE2364 /* GCDWebServer */; };
@@ -204,8 +203,6 @@
 		71C754B52A42771B008A4A67 /* Canvas+Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+Center.swift"; sourceTree = "<group>"; };
 		71C754B62A42771B008A4A67 /* Canvas+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Canvas+View.swift"; sourceTree = "<group>"; };
 		71C754B72A42771B008A4A67 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		71C754CA2A42773D008A4A67 /* MarbleKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MarbleKit; path = ../MarbleKit; sourceTree = "<group>"; };
-		71C754CD2A427817008A4A67 /* Granite */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Granite; path = ../Granite; sourceTree = "<group>"; };
 		71C754D42A42A578008A4A67 /* Stream._.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream._.swift; sourceTree = "<group>"; };
 		71F9793F2A4A0C6100FC7BAF /* Menu.ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.ControlView.swift; sourceTree = "<group>"; };
 		71F979422A4A844300FC7BAF /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
@@ -216,12 +213,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B1791B2A46822D003EC72D /* GraniteUI in Frameworks */,
+				71AB15D72A55138300E0FAB4 /* GraniteML in Frameworks */,
+				71AB15D52A55138300E0FAB4 /* Granite in Frameworks */,
+				71AB15D92A55138300E0FAB4 /* GraniteUI in Frameworks */,
 				710BE4662A3EF35800840BBF /* Fuzi in Frameworks */,
+				71AB15DC2A55139600E0FAB4 /* MarbleKit in Frameworks */,
 				71DD63B62A43D89700BE2364 /* GCDWebServer in Frameworks */,
-				71B1791D2A46822D003EC72D /* MarbleKit in Frameworks */,
-				71B179192A46822D003EC72D /* GraniteML in Frameworks */,
-				71B179172A46822D003EC72D /* Granite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,12 +226,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71C754CC2A427748008A4A67 /* MarbleKit in Frameworks */,
-				71C754CF2A427838008A4A67 /* Granite in Frameworks */,
-				71C754D12A427839008A4A67 /* GraniteUI in Frameworks */,
 				710BE4842A3F01E800840BBF /* Fuzi in Frameworks */,
-				71C754D32A427BD4008A4A67 /* GraniteML in Frameworks */,
+				71AB15DE2A5513A700E0FAB4 /* Granite in Frameworks */,
+				71AB15E02A5513A700E0FAB4 /* GraniteUI in Frameworks */,
 				710F92352A41787800F4B1BD /* AVKit.framework in Frameworks */,
+				71AB15E22A5513A700E0FAB4 /* MarbleKit in Frameworks */,
 				71DD63CD2A43D8F700BE2364 /* GCDWebServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,8 +316,6 @@
 		711B3F6C2885D43700F3080D = {
 			isa = PBXGroup;
 			children = (
-				71C754CD2A427817008A4A67 /* Granite */,
-				71C754CA2A42773D008A4A67 /* MarbleKit */,
 				710BE4862A3F120A00840BBF /* README.md */,
 				710BE4852A3F033800840BBF /* Bitsy--macOS--Info.plist */,
 				719725FD28CC864400A64334 /* Bitsy--iOS--Info.plist */,
@@ -554,10 +548,10 @@
 			packageProductDependencies = (
 				710BE4652A3EF35800840BBF /* Fuzi */,
 				71DD63B52A43D89700BE2364 /* GCDWebServer */,
-				71B179162A46822D003EC72D /* Granite */,
-				71B179182A46822D003EC72D /* GraniteML */,
-				71B1791A2A46822D003EC72D /* GraniteUI */,
-				71B1791C2A46822D003EC72D /* MarbleKit */,
+				71AB15D42A55138300E0FAB4 /* Granite */,
+				71AB15D62A55138300E0FAB4 /* GraniteML */,
+				71AB15D82A55138300E0FAB4 /* GraniteUI */,
+				71AB15DB2A55139600E0FAB4 /* MarbleKit */,
 			);
 			productName = "PEX (iOS)";
 			productReference = 711B3F792885D43B00F3080D /* Bitsy.app */;
@@ -578,11 +572,10 @@
 			name = "Bitsy (macOS)";
 			packageProductDependencies = (
 				710BE4832A3F01E800840BBF /* Fuzi */,
-				71C754CB2A427748008A4A67 /* MarbleKit */,
-				71C754CE2A427838008A4A67 /* Granite */,
-				71C754D02A427839008A4A67 /* GraniteUI */,
-				71C754D22A427BD4008A4A67 /* GraniteML */,
 				71DD63CC2A43D8F700BE2364 /* GCDWebServer */,
+				71AB15DD2A5513A700E0FAB4 /* Granite */,
+				71AB15DF2A5513A700E0FAB4 /* GraniteUI */,
+				71AB15E12A5513A700E0FAB4 /* MarbleKit */,
 			);
 			productName = "PEX (macOS)";
 			productReference = 711B3F7F2885D43B00F3080D /* Bitsy.app */;
@@ -664,6 +657,8 @@
 			packageReferences = (
 				710BE4642A3EF35800840BBF /* XCRemoteSwiftPackageReference "Fuzi" */,
 				71DD63B42A43D89700BE2364 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
+				71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */,
+				71AB15DA2A55139600E0FAB4 /* XCRemoteSwiftPackageReference "MarbleKit" */,
 			);
 			productRefGroup = 711B3F7A2885D43B00F3080D /* Products */;
 			projectDirPath = "";
@@ -996,7 +991,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.stoic.Bitsy;
 				PRODUCT_NAME = Bitsy;
 				SDKROOT = iphoneos;
@@ -1033,7 +1028,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.stoic.Bitsy;
 				PRODUCT_NAME = Bitsy;
 				SDKROOT = iphoneos;
@@ -1054,7 +1049,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2023061900;
+				CURRENT_PROJECT_VERSION = 2023070400;
 				DEVELOPMENT_TEAM = CV8LAA8JAP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1067,7 +1062,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.stoic.Bitsy;
 				PRODUCT_NAME = Bitsy;
 				SDKROOT = macosx;
@@ -1087,7 +1082,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2023061900;
+				CURRENT_PROJECT_VERSION = 2023070400;
 				DEVELOPMENT_TEAM = CV8LAA8JAP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1100,7 +1095,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.stoic.Bitsy;
 				PRODUCT_NAME = Bitsy;
 				SDKROOT = macosx;
@@ -1248,6 +1243,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pexavc/Granite.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		71AB15DA2A55139600E0FAB4 /* XCRemoteSwiftPackageReference "MarbleKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pexavc/MarbleKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		71DD63B42A43D89700BE2364 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yene/GCDWebServer";
@@ -1269,37 +1280,40 @@
 			package = 710BE4642A3EF35800840BBF /* XCRemoteSwiftPackageReference "Fuzi" */;
 			productName = Fuzi;
 		};
-		71B179162A46822D003EC72D /* Granite */ = {
+		71AB15D42A55138300E0FAB4 /* Granite */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */;
 			productName = Granite;
 		};
-		71B179182A46822D003EC72D /* GraniteML */ = {
+		71AB15D62A55138300E0FAB4 /* GraniteML */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */;
 			productName = GraniteML;
 		};
-		71B1791A2A46822D003EC72D /* GraniteUI */ = {
+		71AB15D82A55138300E0FAB4 /* GraniteUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */;
 			productName = GraniteUI;
 		};
-		71B1791C2A46822D003EC72D /* MarbleKit */ = {
+		71AB15DB2A55139600E0FAB4 /* MarbleKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 71AB15DA2A55139600E0FAB4 /* XCRemoteSwiftPackageReference "MarbleKit" */;
 			productName = MarbleKit;
 		};
-		71C754CB2A427748008A4A67 /* MarbleKit */ = {
+		71AB15DD2A5513A700E0FAB4 /* Granite */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = MarbleKit;
-		};
-		71C754CE2A427838008A4A67 /* Granite */ = {
-			isa = XCSwiftPackageProductDependency;
+			package = 71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */;
 			productName = Granite;
 		};
-		71C754D02A427839008A4A67 /* GraniteUI */ = {
+		71AB15DF2A5513A700E0FAB4 /* GraniteUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 71AB15D32A55138300E0FAB4 /* XCRemoteSwiftPackageReference "Granite" */;
 			productName = GraniteUI;
 		};
-		71C754D22A427BD4008A4A67 /* GraniteML */ = {
+		71AB15E12A5513A700E0FAB4 /* MarbleKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = GraniteML;
+			package = 71AB15DA2A55139600E0FAB4 /* XCRemoteSwiftPackageReference "MarbleKit" */;
+			productName = MarbleKit;
 		};
 		71DD63B52A43D89700BE2364 /* GCDWebServer */ = {
 			isa = XCSwiftPackageProductDependency;

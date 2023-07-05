@@ -229,7 +229,6 @@ extension MonitorView {
                     .fill(Color.black.opacity(0.75))
             )
             
-            
             GraniteToggle(config.center.enableClipping) {
                 Text(" Enable Clipping (High Resource Usage)")
                     .font(.headline.bold())
@@ -240,10 +239,11 @@ extension MonitorView {
                     .fill(Color.black.opacity(0.75))
             )
             
+            //DEV:
             Button {
                 MarbleRemote.current.fireMarblePlayerItemDebug()
             } label : {
-                Text("Debug Player Item")
+                Text("Reset Stream Codec")
                     .font(.headline.bold())
             }
             .buttonStyle(PlainButtonStyle())

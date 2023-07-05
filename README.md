@@ -2,13 +2,13 @@
 
 100% SwiftUI lightweight stream viewer for Kick and Twitch. Support for other platforms coming soon!
 
-Kick           |  Twitch
-:-------------------------:|:-------------------------:
-![Kick Preview](https://stoic-static-files.s3.us-west-1.amazonaws.com/bitsy/demos/bitsy_intro_1.gif) | ![Twitch Preview](https://stoic-static-files.s3.us-west-1.amazonaws.com/bitsy/demos/bitsy_intro_2.gif)
+![Preview](https://stoic-static-files.s3.us-west-1.amazonaws.com/bitsy/demos/bitsy_intro_3.gif)
 
 **Table of Contents**
 - [Requirements](#requirements)
 - [Guide WIP](#guide)
+  - [Clipping](#clipping)
+  - [Audio Visualizer](#clipping)
   - [Intercepting](#intercepting)
   - [Bypassing Walls](#bypassing-walls)
   - [Adding a new site](#adding-a-new-site)
@@ -34,6 +34,20 @@ Build locally using `XCode 14.2` or download the latest *notarized* build [here]
 - [Fuzi](https://github.com/cezheng/Fuzi) by [@cezheng](https://github.com/cezheng)
 
 ## Guide
+
+### Clipping
+
+Clipping any stream is possible when enabling it via the menu on the top right. Memory usage will increase significantly as buffers are stored for video generation.
+
+Disable the functionality to free up the occupied memory. The default clip length is set to 5 seconds, but that can be modified here.
+
+### Audio Visualizer
+
+The Audio visualizer processes audio data in realtime. Letting you monitor the audio data frequencies and loudness of the stream.
+
+Effects have been implemented using MarbleKit's collection. One can fork MarbleKit to implement their own shaders and effects using Metal and following the design pattern in the kit appropriately. 
+
+In the future, other hooks can be available for other types of Audio manipulation such as Speech to text for closed captioning.
 
 ### Intercepting
 
@@ -131,8 +145,6 @@ So we just simply, wait for it to complete, [then we Swizzle](https://github.com
 
 ### Bypassing Walls
 
-> May be used in the future, but implementation is in place
-
 Sometimes there are dialog boxes or overlays that could block a stream from loading. 
 
 Systems have been put in place to setup a [basic automation routine](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L87-L93) to click through these until a stream can be found.
@@ -221,8 +233,6 @@ extension StreamKind {
 ```
 
 ## TODO
-- [x] Complete macOS implementation
 - [ ] Bypass walls properly (Age rating/Cookies dialog) `(Partially working)`
-- [ ] Design polish
-- [ ] UX polish (username entry in-app)
 - [ ] Chat viewer
+- [ ] Stabilizing stream rendering, further
