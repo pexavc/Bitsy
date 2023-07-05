@@ -2,7 +2,7 @@
 //  ConfigService._.swift
 //  Bitsy
 //
-//  Created by Ritesh Pakala on 6/27/23.
+//  Created by PEXAVC on 6/27/23.
 //
 
 import Foundation

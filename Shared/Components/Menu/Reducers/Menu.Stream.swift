@@ -27,6 +27,8 @@ extension Menu {
             
             service.preload()
             
+            print("[Menu.Stream.SetStream] \(meta?.username) \(state.username)")
+            
             let sanitized = (meta?.username ?? state.username).trimmingCharacters(in: .whitespacesAndNewlines)
             
             guard sanitized.isEmpty == false else {
@@ -49,7 +51,7 @@ extension Menu {
             
             baseURLString += sanitized
             
-            print("[Home.Stream.SetStream] Setting StreamURL: \(baseURLString)")
+            print("[Menu.Stream.SetStream] Setting StreamURL: \(baseURLString)")
             
             service
                 .center

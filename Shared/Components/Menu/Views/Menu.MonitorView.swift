@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import MarbleKit
+import Granite
 
 public struct MonitorView: View {
     
@@ -31,6 +32,8 @@ public struct MonitorView: View {
     @State var volume: Double = 0.5
     
     @State var controlsExpanded: Bool = true
+    
+    @Relay var config: ConfigService
     
     public var body: some View {
         ZStack {
@@ -124,6 +127,10 @@ extension MonitorView {
                     .fill(Color.black.opacity(0.75))
             )
             
+            Toggle(isOn: config.center.$state.binding.enableClipping) {
+                        Text("Enable Clipping (High Resource Usage)")
+                    }.padding()
+            
             if loadState == .loading {
                 HStack {
                     Text("Buffering:")
@@ -216,6 +223,30 @@ extension MonitorView {
                 }
             }
             .frame(width: 214, height: 24)
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.black.opacity(0.75))
+            )
+            
+            
+            GraniteToggle(config.center.enableClipping) {
+                Text(" Enable Clipping (High Resource Usage)")
+                    .font(.headline.bold())
+            }
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.black.opacity(0.75))
+            )
+            
+            Button {
+                MarbleRemote.current.fireMarblePlayerItemDebug()
+            } label : {
+                Text("Debug Player Item")
+                    .font(.headline.bold())
+            }
+            .buttonStyle(PlainButtonStyle())
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 8)

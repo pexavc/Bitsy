@@ -7,12 +7,14 @@
 
 import Foundation
 import SwiftUI
+import MarbleKit
 
 #if os(iOS)
 class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        //MarbleRemote.initializeNetwork()
         return true
     }
 }
@@ -20,6 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        //MarbleRemote.initializeNetwork()
         //TODO: Profiles a memory leak, may be a red herring.
         //Without this, delegates such as detecting windows closing
         //will not fire

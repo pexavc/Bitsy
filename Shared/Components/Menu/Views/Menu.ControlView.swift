@@ -34,17 +34,19 @@ extension Menu {
             Spacer()
             
             HStack(spacing: 16) {
-                Button {
-                    center.control.send(Menu.Control.Meta(control: .clip))
-                } label: {
-                    Image(systemName: "scissors")
-                        .font(.title3.bold())
-                        .frame(width: 24)
-                        .foregroundColor(.white)
-                        .padding(.top, 2)
+                if configService.state.enableClipping {
+                    Button {
+                        center.control.send(Menu.Control.Meta(control: .clip))
+                    } label: {
+                        Image(systemName: "scissors")
+                            .font(.title3.bold())
+                            .frame(width: 24)
+                            .foregroundColor(.white)
+                            .padding(.top, 2)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.trailing, 8)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.trailing, 8)
                 
                 Button {
                     center.control.send(Menu.Control.Meta(control: .toggleFX))
