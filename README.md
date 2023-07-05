@@ -31,6 +31,7 @@ Build locally using `XCode 14.2` or download the latest *notarized* build [here]
 ## Swift Packages
 
 - [Granite](https://github.com/pexavc/Granite)
+- [MarbleKit](https://github.com/pexavc/MarbleKit)
 - [Fuzi](https://github.com/cezheng/Fuzi) by [@cezheng](https://github.com/cezheng)
 
 ## Guide
