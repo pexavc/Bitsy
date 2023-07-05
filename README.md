@@ -6,9 +6,9 @@
 
 **Table of Contents**
 - [Requirements](#requirements)
-- [Guide WIP](#guide)
+- [Guide](#guide)
   - [Clipping](#clipping)
-  - [Audio Visualizer](#clipping)
+  - [Audio Visualizer](#audio-visualizer)
   - [Intercepting](#intercepting)
   - [Bypassing Walls](#bypassing-walls)
   - [Adding a new site](#adding-a-new-site)
@@ -37,9 +37,13 @@ Build locally using `XCode 14.2` or download the latest *notarized* build [here]
 
 ### Clipping
 
-Clipping any stream is possible when enabling it via the menu on the top right. Memory usage will increase significantly as buffers are stored for video generation.
+Clipping any stream is possible when enabling it via the menu on the top right. Memory usage will increase significantly as buffers are stored for video generation. Disable the functionality to free up the occupied memory. 
 
-Disable the functionality to free up the occupied memory. The default clip length is set to 5 seconds, but that can be modified here.
+The default clip length is set to 5 seconds, but that can be modified by editing a static variable a part of `MarbleKit` like so. 
+
+```swift
+Clip.maxDuration = 10 //in seconds
+```
 
 ### Audio Visualizer
 
@@ -47,7 +51,15 @@ The Audio visualizer processes audio data in realtime. Letting you monitor the a
 
 Effects have been implemented using MarbleKit's collection. One can fork MarbleKit to implement their own shaders and effects using Metal and following the design pattern in the kit appropriately. 
 
-In the future, other hooks can be available for other types of Audio manipulation such as Speech to text for closed captioning.
+[Here](https://github.com/pexavc/Bitsy/blob/8dcdd9df33d3fba63e490f75f106b03254f80ba8/Shared/Components/Menu/Reducers/Menu.Controls.swift#L29-L39) is how fx are being modified. Simply adjust this static variable anywhere to change the fx yourself programmatically. 
+
+```swift
+MarbleRemote.fx = [.ink]
+```
+
+[Here](https://github.com/pexavc/MarbleKit/blob/a3196174421940ddf778d6033453f7038bf774ad/Sources/MarbleKit/Engine/Core/Catalog/FilterType.swift#L44-L110) is a list of current FX supported. Make note, only the 2D effects are supported in Bitsy for now.
+
+> In the future, other hooks can be available for other types of Audio manipulation such as Speech to text for closed captioning.
 
 ### Intercepting
 
@@ -147,7 +159,7 @@ So we just simply, wait for it to complete, [then we Swizzle](https://github.com
 
 Sometimes there are dialog boxes or overlays that could block a stream from loading. 
 
-Systems have been put in place to setup a [basic automation routine](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L87-L93) to click through these until a stream can be found.
+Systems have been put in place to setup a [basic automation routine](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.Helpers.swift) to click through these until a stream can be found.
 
 > Warning: Potential infinite loop case. If a wall is detected, but automation fails.
 
@@ -191,17 +203,19 @@ var webViewConfig: WebViewConfig {
 
 Then, you can play around/experiment with automation. Editing the button actions [here](https://github.com/pexavc/Bitsy/tree/main/Shared/Views/WebView/GraniteWebView.swift#L41-L91).
 
-### Adding a new site
+### Adding a new site (Deprecated)
 
-1. [Add a new `StreamKind`](https://github.com/pexavc/Bitsy/tree/main/Shared/Services/Remote/Models/VideoConfig.swift#L31-L34)
+> Adding a new StreamKind will require modifying [MarbleKit](https://github.com/pexavc/MarbleKit). In the future this will be exposed to the front-end side for modification within Bitsy.
 
-2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/blob/main/Shared/Components/Menu/Reducers/Menu.Stream.swift#L40-L45)
+1. [Add a new `StreamKind`](https://github.com/pexavc/MarbleKit/blob/a3196174421940ddf778d6033453f7038bf774ad/Sources/MarbleKit/Player/MarbleRemote/MarbleRemoteConfig.swift#L77-L81)
+
+2. [Add a new Sanitization step, when setting a stream](https://github.com/pexavc/Bitsy/blob/main/Shared/Components/Menu/Reducers/Menu.Stream.swift#L45-L50)
 
 3. Using prior methods as reference, observe how to fetch a `.m3u8` file. To finally set it in this [scope](https://github.com/pexavc/Bitsy/blob/main/Shared/Views/WebView/WebView.Coordinator.swift#L139-L170) most likely.
 
 ### Troubleshooting
 
-If you are stuck on an infinite loading spiral. The bypass check, might be failing. I have only setup detection for english at the moment. [Add a step for these steps here](https://github.com/pexavc/Bitsy/blob/main/Shared/Services/Remote/Utilities/WallBypasser.Step.swift#L45-L68) to the exact warning/dialog box message in your appropriate language.
+If you are stuck on an infinite loading spiral. The bypass check, might be failing. I have only setup detection for english at the moment. [Add a step for these steps here](https://github.com/pexavc/Bitsy/blob/8dcdd9df33d3fba63e490f75f106b03254f80ba8/Shared/Services/Remote/Utilities/WallByPasser/WallBypasser.Step.swift#L46-L74) to the exact warning/dialog box message in your appropriate language.
 
 Set the `webViewConfig`'s `isHeadless` mode to *false* to see if the stream starts normally or to read the exact dialog box message, button action text.
 
