@@ -1,0 +1,4 @@
+import Granite
+
+extension Stream {
+}

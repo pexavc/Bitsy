@@ -8,6 +8,7 @@
 import Foundation
 import Granite
 import SwiftUI
+import MarbleKit
 
 extension RemoteService {
     struct SetStream: GraniteReducer {
@@ -15,7 +16,7 @@ extension RemoteService {
         
         struct Meta: GranitePayload {
             var username: String
-            var kind: StreamKind
+            var kind: MarbleRemoteConfig.StreamConfig.Kind
             var urlString: String
         }
         
@@ -39,12 +40,14 @@ extension RemoteService {
             var url: URL
         }
         
+        @Relay var service: ConfigService
+        
         @Payload var meta: Meta?
         
         func reduce(state: inout Center.State) {
             guard let meta = self.meta else { return }
             
-            let config: VideoConfig = .init(name: state.username,
+            let config: MarbleRemoteConfig = .init(name: state.username,
                                             kind: state.streamKind,
                                             streams: [
                                                 .init(resolution: .p1080,
@@ -53,9 +56,7 @@ extension RemoteService {
             
             state.config = config
             
-            var newHistory = Array(state.history.suffix(6))
-            newHistory.append(config)
-            state.history = newHistory
+            service.center.setHistory.send(ConfigService.SetHistory.Meta(config: config))
             
             state.isLoadingStream = false
         }

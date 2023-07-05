@@ -6,18 +6,9 @@ extension Stream: View {
     public var view: some View {
         ZStack {
             VStack {
-                if service.state.config != nil {
-                    if let remote = self.remote {
-                        VideoPlayer(player: remote.player)
-                            .onAppear() {
-                                remote.player.play()
-                            }
-    //                        .onDisappear {
-    //                            remote.player.pause()
-    //                        }
-                    } else {
-                        Text("Failed to start stream. Config = \(service.state.config?.name ?? "{UNKNOWN}")")
-                    }
+                if let config = service.state.config {
+                    Canvas(config: config)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if let urlString = service.state.streamURLString {
                     GraniteWebView(config: webViewConfig,
                                    urlString: urlString)

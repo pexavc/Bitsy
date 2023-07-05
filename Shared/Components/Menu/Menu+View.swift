@@ -11,7 +11,7 @@ extension Menu: View {
             Rectangle()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .foregroundColor(
-                    Color.black.opacity(state.showUsernameEntry || service.state.isLoadingStream ? 0.9 : 0.0)
+                    Color.black.opacity(streamIsActive || state.showUsernameEntry == false ? 0.0 : 0.5)
                 )
                 .animation(.default,
                            value: state.showUsernameEntry || service.state.isLoadingStream)
@@ -28,11 +28,9 @@ extension Menu: View {
                 .opacity(state.showUsernameEntry ? 0.25 : 1.0)
             }
             
-            inputView
+            MonitorView()
             
-            if state.showUsernameEntry && service.state.history.isEmpty == false {
-                historyView
-            }
+            inputView
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

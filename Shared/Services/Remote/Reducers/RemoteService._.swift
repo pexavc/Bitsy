@@ -8,6 +8,7 @@
 import Foundation
 import Granite
 import SwiftUI
+import MarbleKit
 
 extension RemoteService {
     struct Reset: GraniteReducer {
@@ -18,14 +19,7 @@ extension RemoteService {
             state.username = ""
             state.isLoadingStream = false
             state.streamURLString = nil
-        }
-    }
-    
-    struct ClearHistory: GraniteReducer {
-        typealias Center = RemoteService.Center
-        
-        func reduce(state: inout Center.State) {
-            state.history = []
+            MarbleRemote.current.shutdown()
         }
     }
 }

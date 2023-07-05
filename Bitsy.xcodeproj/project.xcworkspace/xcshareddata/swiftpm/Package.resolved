@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "ffmpegkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pexavc/FFmpegKit.git",
+      "state" : {
+        "revision" : "89f71ccee33d1ff402201162f28b6400f349c873",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "fuzi",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cezheng/Fuzi",
@@ -10,12 +19,30 @@
       }
     },
     {
+      "identity" : "gcdwebserver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yene/GCDWebServer",
+      "state" : {
+        "revision" : "e143b8ec1b8a45d1779b1658fbaaf8fb039b5685",
+        "version" : "3.5.5"
+      }
+    },
+    {
       "identity" : "granite",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pexavc/Granite.git",
       "state" : {
         "branch" : "main",
-        "revision" : "f993e4703719d75ce8badadfbce549abc0c6860f"
+        "revision" : "cf750204df92ccd89765bbe35c9b966f43d1a4f5"
+      }
+    },
+    {
+      "identity" : "marblekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pexavc/MarbleKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a3196174421940ddf778d6033453f7038bf774ad"
       }
     }
   ],

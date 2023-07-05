@@ -7,6 +7,7 @@
 
 import Foundation
 import Granite
+import MarbleKit
 
 extension WallBypasser {
     struct Step: GraniteModel {
@@ -42,7 +43,7 @@ extension WallBypasser {
     }
 }
 
-extension StreamKind {
+extension MarbleRemoteConfig.StreamConfig.Kind {
     var bypassSteps: [WallBypasser.Step] {
         switch self {
         case .kick:
@@ -62,6 +63,10 @@ extension StreamKind {
                 //Mobile view has a slightly different variation of above
                 .init(targetInnerText: "Start Watching",
                       detectionText: "The broadcaster indicated that this channel is intended for mature audiences.",
+                      kind: .button),
+                //Another variant
+                .init(targetInnerText: "Start Watching",
+                      detectionText: "content is intended for certain audiences",
                       kind: .button)
             ]
         }

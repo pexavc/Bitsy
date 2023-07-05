@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import WebKit
+import MarbleKit
 
 public enum WebViewAction: Equatable {
     case idle,
@@ -91,7 +92,7 @@ public struct WebViewState: Equatable {
 
 public struct WebViewConfig {
     public enum ContentKind {
-        case stream(StreamKind)
+        case stream(MarbleRemoteConfig.StreamConfig.Kind)
         case none
     }
     
